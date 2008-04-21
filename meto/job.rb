@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'xmas'
 
-class MetonymyCountryJob < Xmas::JSJob
-  USET = "metonymy_country"
+class MetoCountryJob < Xmas::JSJob
+  USET = "meto_country"
 
   CATEGORIES = [
     ["literal", '<b>Literal:</b> "(in) the geographical region known as X" (~80% of all examples)',
@@ -12,9 +12,9 @@ class MetonymyCountryJob < Xmas::JSJob
     ["product", %{<b>Product</b>: "(the) product that was/were produced in X"(<1% of all examples)}, %{I bought a real Meissen}],
     ["name", %{<b>Name</b>: "(by) the name X" (<1% of all examples)}, %{Italy has three syllables.}],
     ["representation", %{<b>Representation</b>: "representation (photo, painting, drawing, etc.) of X" (<1% of all examples)}, %{Italy looks like a boot on the map.}],
-    ["gt1", %{<b>Ambiguous</b>: More than one interpretation due to multiple contexts with different constraints on the reading.  (~2% of all examples)}, nil],
-    ["none", %{None of the above (<1% of all examples)}, nil],
-  ]
+    ["gt1", %{<b>Ambiguous</b>: More than one interpretation due to multiple contexts with different constraints on the reading. (~2% of all examples)}, nil],
+    ["none", %{<b>None of the above</b>  (<1% of all examples)}, nil],
+  ].map{|cat,descr,ex| [cat,  descr.gsub(/(\([^)]*\))$/, "<span class='prior'>\\1</span>"),  ex ]}
   
   CATEGORY_MORE_EXAMPLES = {
     "literal" => [
@@ -71,7 +71,8 @@ class MetonymyCountryJob < Xmas::JSJob
         div.text b { font-size: 16pt; color: darkblue; font-style:italic }
         
         div.example { margin-left: 30pt; }
-        div.example .inner { color: #333; font-style:italic }
+        div.example .inner { color: #355; font-style:italic }
+        .prior { color: #355; margin-left: 5pt  }
       EOF
     end
 
