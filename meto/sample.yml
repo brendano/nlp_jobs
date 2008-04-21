@@ -1,0 +1,5 @@
+- text: <b>Italy</b> scored two goals in the World Cup game.
+  category: person
+- text: |-
+    The list was dominated by the large US multinationals such as <b>Ford</b> and Coca-Cola.
+  category: literal
