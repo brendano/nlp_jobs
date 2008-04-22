@@ -2,7 +2,7 @@ require 'rubygems'
 require 'xmas'
 
 class WordSim < Xmas::JSJob
-  USET = "wordsim"
+  USET = nil   #"wordsim"
 
   class << self
     
@@ -49,18 +49,18 @@ class WordSim < Xmas::JSJob
     end
 
     def title
-      "Word similarity"
+      "Word similarity: 20 word pairs"
     end
 
     def description
-      "Decide how similar pairs of words are."
+      "Decide how similar words are."
     end
     
     def units_per_hit
-      30
+      20
     end
     def judgements_per_unit
-      50
+      10
     end
     def reward_cents
       2
