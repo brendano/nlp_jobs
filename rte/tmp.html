@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Mechanical Turk Hit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<style type="text/css" media="screen">
+		body {font:13px/1.22 helvetica,arial,clean,sans-serif;*font-size:small;*font:x-small;padding:10px;}
+		table {font-size:inherit;font:100%;}
+		
+		
+		
+		table {border-top:2px solid #555;padding:20px 0 0 0;border-spacing:0;width:90%;}
+		table td {padding:3px;vertical-align:top;}
+		span.loading {
+		  display:block;font-size:135%;font-weight:bold;color:#c33;
+    }
+    div.wrapper { padding:10px;}
+		label {display:block;margin-top:5px;}
+		dt {font-weight:bold;display:inline;}
+		dd {display:inline;margin-left:5px;}
+		.warning {color:red;font-weight:bold;font-size:200%}
+		.wrapper {margin-bottom:15px;}
+		.custom {color:#333;}
+		p.dolores {
+		  margin-top:-30px;
+		  color:#333;
+		}
+		p.dolores a.logo {
+		  float:right;
+		}
+		p.dolores a.logo img {
+		  border:none;
+		}
+	</style>
+	
+	  <script src="http://a1.doloreslabs.com/jsawesome-0.1.4.js?minor=1" type="text/javascript"></script>
+	
+</head>
+<body>
+  <p class="warning">Page loading...  If this message stays here for more than 30 seconds, you should not attempt to complete this hit.  Try refreshing or enabling Javascript</p>
+  <p style="font-weight:bold">      <p>
+      Please state whether the second sentence (the <b>Hypothesis</b>) 
+      is implied by the information in first sentence (the <b>Text</b>), 
+      i.e., please state whether the <b>Hypothesis</b> can be determined to be true given
+      that the <b>Text</b> is true.  Assume that you do not know anything about the situation 
+      except what the <b>Text</b> itself says.  Also, note that every part of the <b>Hypothesis</b> 
+      must be implied by the <b>Text</b> in order for it to be true.<p>
+      <hr>
+      <b>Examples:</b><p>
+      <b>Text:</b> The anti-terrorist court found two men guilty of murdering Shapour
+      Bakhtiar and his secretary Sorush Katibeh, who were found with their throats cut in
+      August 1991.<br>
+      <b>Hypothesis:</b> Shapour Bakhtiar died in 1991.<br>
+      <b>Answer:</b> YES
+      <p>
+      <b>Text:</b> Many experts think that there is likely to be another terrorist attack on
+      American soil within the next five years.<br>
+      <b>Hypothesis:</b> There will be another terrorist
+      attack on American soil within the next five years.<br> 
+      <b>Answer:</b> NO
+      
+      
+      </p>
+      
+      <hr>
+</p><br/>
+	<form id="mturk_form" method="post" action="http://www.mturk.com/mturk/externalSubmit">
+		
+      <div class="wrapper odd">
+              <b>Text:</b> "The city Tenochtitlan grew rapidly and was the center of the Aztec&apos;s great empire."<br/>
+      <b>Hypothesis:</b> "Tenochtitlan quickly spread over the island, marshes, and swamps.
+"<br/>
+
+
+    	  
+      <p></p>
+      <div id="u758"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper even">
+              <b>Text:</b> "Militant groups in Iraq have waged a kidnapping campaign aimed at driving out U.S. supporting companies and troops."<br/>
+      <b>Hypothesis:</b> "About 70 foreigners have been abducted by militants fighting the U.S.-led occupation and reconstruction efforts in Iraq.
+"<br/>
+
+
+    	  
+      <p></p>
+      <div id="u759"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper odd">
+        
+    	  
+      <p>Do you have any comments? <i>(optional)</i></p>
+      <textarea rows="3" cols="100" name="h-comments" id="comments"></textarea>
+      
+    	</div>
+    	<br style="clear:both"/>
+    
+		<p class="dolores">If you would like to see what other people are saying about this HIT, or discuss anything about Mechanical Turk, visit our <a href="http://discuss.doloreslabs.com" target="_blank">discussion boards</a><a href="http://discuss.doloreslabs.com" target="_blank" class="logo"><img src="http://assets.doloreslabs.com/logo_tiny.gif"/></a></p>
+	<input type="submit" id="submit" value="Submit HIT"/>
+	</form>
+	<script type="text/javascript">
+	  //Remove the JS warning
+	  $E('p.warning').destroy()
+		function gup( name ) {
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		var preview = gup("assignmentId") == "ASSIGNMENT_ID_NOT_AVAILABLE"
+		if (preview) {
+			new Element('span', {
+				'class': 'warning', 
+				html: 'Preview mode.  Remember to accept the HIT before doing it!'
+			}).inject(document.body, 'top');  
+			$('submit').disabled = true
+		} else {
+		  new Element('input', {
+		  	type: 'hidden',
+		  	name: 'assignmentId', 
+		  	value: gup('assignmentId')
+		  }).inject('mturk_form')
+    }
+		
+		if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
+		  $('mturk_form').action = "http://workersandbox.mturk.com/mturk/externalSubmit";
+		}
+		
+              window.addEvent('load', function(){
+          $$('input.none').each(function(i){
+            i.addEvent('click', function(){
+              var id = this.getParent('div').getParent().get('id')
+              var awesome = eval(id)
+              if(this.checked)
+                 awesome.stopValidation()
+              else
+                 awesome.addValidation()
+            })
+          })
+        })
+
+    
+		
+      var j758 = [["*hypothesis",["Yes","No"]],["comment",""]].concat([])
+      var u758 = new JSAwesome('u758', j758, {"hypothesis":{"required":true,"label":"Does the text imply the hypothesis?"}})
+      u758.to_html()
+      u758.addValidation()
+      
+      
+
+      var j759 = [["*hypothesis",["Yes","No"]],["comment",""]].concat([])
+      var u759 = new JSAwesome('u759', j759, {"hypothesis":{"required":true,"label":"Does the text imply the hypothesis?"}})
+      u759.to_html()
+      u759.addValidation()
+      
+      
+
+		
+		$$('p.dolores a').each(function(a){
+		  a.href = a.href+"?tid="+gup("workerId")
+		})
+		//Submit the comments if there are any
+		var submitted = false
+		$('mturk_form').addEvent('submit', function(){
+		  if(!submitted && $('comments') && $('comments').get('value').test(/\w+/)) {
+		    submitted = true
+		    new Element('img', {src:"http://discuss.doloreslabs.com/comments/remote?"+$H({hid:8, tid:gup('workerId'),body:$('comments').get('value')}).toQueryString()})
+		  }
+		})
+		
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3841988-3");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
+</body>
+</html>
+ <!-- This POST method is posting to the sandbox worker site-->
+<!-- <form method="POST" action="http://workersandbox.mturk.com/mturk/externalSubmit">-->
+<!-- This POST method is posting to the production worker site-->
+<!--<form method="POST" action="http://www.mturk.com/mturk/externalSubmit">-->
+<!--<input type="hidden" id="assignmentId" name="assignmentId" value=""> -->
