@@ -16,7 +16,7 @@ class RteJob < Xmas::JSJob
     end
      
     def form_labels
-      { :hypothesis => {:required => true, :label => "Does the text imply the hypothesis?"}}
+      { :hypothesis => {:required => true, :label => "Can all of the information in the <b>Hypothesis</b> be inferred from the <b>Text</b>?"}}
     end
 =begin    
     def questions
@@ -43,16 +43,16 @@ class RteJob < Xmas::JSJob
       must be implied by the <b>Text</b> in order for it to be true.<p>
       <hr>
       <b>Examples:</b><p>
-      <b>Text:</b> The anti-terrorist court found two men guilty of murdering Shapour
+      <b>Text:</b><ul><li>The anti-terrorist court found two men guilty of murdering Shapour
       Bakhtiar and his secretary Sorush Katibeh, who were found with their throats cut in
-      August 1991.<br>
-      <b>Hypothesis:</b> Shapour Bakhtiar died in 1991.<br>
+      August 1991.</ul><br>
+      <b>Hypothesis:</b><ul><li>Shapour Bakhtiar died in 1991.</ul><br>
       <b>Answer:</b> YES
-      <p>
-      <b>Text:</b> Many experts think that there is likely to be another terrorist attack on
-      American soil within the next five years.<br>
-      <b>Hypothesis:</b> There will be another terrorist
-      attack on American soil within the next five years.<br> 
+      <hr>
+      <b>Text:</b><ul><li>Many experts think that there is likely to be another terrorist attack on
+      American soil within the next five years.</ul>
+      <b>Hypothesis:</b><ul><li>There will be another terrorist
+      attack on American soil within the next five years.</ul> 
       <b>Answer:</b> NO
       
       
@@ -62,10 +62,16 @@ class RteJob < Xmas::JSJob
           YO
     end
     
+    def styles
+      %{
+        ul {margin-top :0}        
+      }
+    end
+    
     def problem
       <<-TABLE
-      <b>Text:</b> \"<%= @text %>\"<br/>
-      <b>Hypothesis:</b> \"<%= @hypothesis %>\"<br/>
+      <b>Text:</b><ul><li><%= @text %></ul>
+      <b>Hypothesis:</b><ul><li><%= @hypothesis %></ul>
 
       TABLE
     end
@@ -88,7 +94,7 @@ class RteJob < Xmas::JSJob
     end
     
     def units_per_hit
-      50
+      20
     end
     
     def title
