@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Mechanical Turk Hit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<style type="text/css" media="screen">
+		body {font:13px/1.22 helvetica,arial,clean,sans-serif;*font-size:small;*font:x-small;padding:10px;}
+		table {font-size:inherit;font:100%;}
+		
+		
+		
+		table {border-top:2px solid #555;padding:20px 0 0 0;border-spacing:0;width:90%;}
+		table td {padding:3px;vertical-align:top;}
+		span.loading {
+		  display:block;font-size:135%;font-weight:bold;color:#c33;
+    }
+    div.wrapper { padding:10px;}
+		label {display:block;margin-top:5px;}
+		dt {font-weight:bold;display:inline;}
+		dd {display:inline;margin-left:5px;}
+		.warning {color:red;font-weight:bold;font-size:200%}
+		.wrapper {margin-bottom:15px;}
+		.custom {color:#333;}
+		p.dolores {
+		  margin-top:-30px;
+		  color:#333;
+		}
+		p.dolores a.logo {
+		  float:right;
+		}
+		p.dolores a.logo img {
+		  border:none;
+		}
+	</style>
+	
+	  <script src="http://a1.doloreslabs.com/jsawesome-0.1.4.js?minor=1" type="text/javascript"></script>
+	
+</head>
+<body>
+  <p class="warning">Page loading...  If this message stays here for more than 30 seconds, you should not attempt to complete this hit.  Try refreshing or enabling Javascript</p>
+  <p style="font-weight:bold">      <p>For each task you will be presented with a news headline.  Your task is to score each headline for how much it 
+      provokes six specific emotions: anger, disgust, fear, joy, sadness, and surprise.  Each of these are to be judged on a scale of 0-100, 
+      with 0 meaning "not at all", and 100 meaning "maximum emotion". Finally, please give a score on generally how emotionally negative or 
+      positive the headline is, on a scale of -100 (indicating very negative) to 100 (indicating very positive), 
+      with 0 meaning emotionally neutral.  Thanks!</p>
+</p><br/>
+	<form id="mturk_form" method="post" action="http://www.mturk.com/mturk/externalSubmit">
+		
+      <div class="wrapper odd">
+              Headline: <b>Schuey sees Ferrari unveil new car
+</b><br/><p>
+      How much does this headline evoke the following emotions?
+
+    	  
+      <p></p>
+      <div id="u1558"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper even">
+              Headline: <b>Closings and cancellations top advice on flu outbreak
+</b><br/><p>
+      How much does this headline evoke the following emotions?
+
+    	  
+      <p></p>
+      <div id="u1559"></div>
+    	</div>
+    	<br style="clear:both"/>
+    
+
+      <div class="wrapper odd">
+        
+    	  
+      <p>Do you have any comments? <i>(optional)</i></p>
+      <textarea rows="3" cols="100" name="h-comments" id="comments"></textarea>
+      
+    	</div>
+    	<br style="clear:both"/>
+    
+		<p class="dolores">If you would like to see what other people are saying about this HIT, or discuss anything about Mechanical Turk, visit our <a href="http://discuss.doloreslabs.com" target="_blank">discussion boards</a><a href="http://discuss.doloreslabs.com" target="_blank" class="logo"><img src="http://assets.doloreslabs.com/logo_tiny.gif"/></a></p>
+	<input type="submit" id="submit" value="Submit HIT"/>
+	</form>
+	<script type="text/javascript">
+	  //Remove the JS warning
+	  $E('p.warning').destroy()
+		function gup( name ) {
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		var preview = gup("assignmentId") == "ASSIGNMENT_ID_NOT_AVAILABLE"
+		if (preview) {
+			new Element('span', {
+				'class': 'warning', 
+				html: 'Preview mode.  Remember to accept the HIT before doing it!'
+			}).inject(document.body, 'top');  
+			$('submit').disabled = true
+		} else {
+		  new Element('input', {
+		  	type: 'hidden',
+		  	name: 'assignmentId', 
+		  	value: gup('assignmentId')
+		  }).inject('mturk_form')
+    }
+		
+		if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
+		  $('mturk_form').action = "http://workersandbox.mturk.com/mturk/externalSubmit";
+		}
+		
+              window.addEvent('load', function(){
+          $$('input.none').each(function(i){
+            i.addEvent('click', function(){
+              var id = this.getParent('div').getParent().get('id')
+              var awesome = eval(id)
+              if(this.checked)
+                 awesome.stopValidation()
+              else
+                 awesome.addValidation()
+            })
+          })
+        })
+
+    
+		
+      var j1558 = [["anger",""],["disgust",""],["fear",""],["joy",""],["sadness",""],["surprise",""],["valence",""],["comment",""]].concat([])
+      var u1558 = new JSAwesome('u1558', j1558, {"surprise":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Surprise (0-100)"},"valence":{"required":true,"validation":["^-?((\\d)|(\\d\\d)|(100))$",["Please enter a number from -100 through 100."]],"label":"In general, how positive or negative is this headline, on a scale of:<br>-100 (very negative) <--- 0 (neutral) ---> 100 (very positive)"},"disgust":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Disgust (0-100)"},"fear":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Fear (0-100)"},"joy":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Joy (0-100)"},"sadness":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Sadness (0-100)"},"anger":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Anger (0-100)"}})
+      u1558.to_html()
+      u1558.addValidation()
+      
+      
+
+      var j1559 = [["anger",""],["disgust",""],["fear",""],["joy",""],["sadness",""],["surprise",""],["valence",""],["comment",""]].concat([])
+      var u1559 = new JSAwesome('u1559', j1559, {"surprise":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Surprise (0-100)"},"valence":{"required":true,"validation":["^-?((\\d)|(\\d\\d)|(100))$",["Please enter a number from -100 through 100."]],"label":"In general, how positive or negative is this headline, on a scale of:<br>-100 (very negative) <--- 0 (neutral) ---> 100 (very positive)"},"disgust":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Disgust (0-100)"},"fear":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Fear (0-100)"},"joy":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Joy (0-100)"},"sadness":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Sadness (0-100)"},"anger":{"required":true,"validation":["^((\\d)|(\\d\\d)|(100))$",["Please enter a number from 0 through 100."]],"label":"Anger (0-100)"}})
+      u1559.to_html()
+      u1559.addValidation()
+      
+      
+
+		
+		$$('p.dolores a').each(function(a){
+		  a.href = a.href+"?tid="+gup("workerId")
+		})
+		//Submit the comments if there are any
+		var submitted = false
+		$('mturk_form').addEvent('submit', function(){
+		  if(!submitted && $('comments') && $('comments').get('value').test(/\w+/)) {
+		    submitted = true
+		    new Element('img', {src:"http://discuss.doloreslabs.com/comments/remote?"+$H({hid:9, tid:gup('workerId'),body:$('comments').get('value')}).toQueryString()})
+		  }
+		})
+		
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-3841988-3");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
+</body>
+</html>
+ <!-- This POST method is posting to the sandbox worker site-->
+<!-- <form method="POST" action="http://workersandbox.mturk.com/mturk/externalSubmit">-->
+<!-- This POST method is posting to the production worker site-->
+<!--<form method="POST" action="http://www.mturk.com/mturk/externalSubmit">-->
+<!--<input type="hidden" id="assignmentId" name="assignmentId" value=""> -->
