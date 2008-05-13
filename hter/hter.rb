@@ -98,7 +98,8 @@ class HTERJob < Xmas::JSJob
     
     def styles
       %{
-        ul {margin-top :0}        
+        ul {margin-top: 0}
+        .translation { font-size: 120%; width: 90% }
       }
     end
     
