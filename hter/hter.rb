@@ -17,7 +17,8 @@ class HTERJob < Xmas::JSJob
     end
      
     def form_labels
-      { :translation => {:required => true, :label => "Corrected Minimum-Edit Translation"}, :validation=>["\\S\\S\\S", "Please enter a full corrected translation."]}
+      { :translation => {:required => true, :label => "Corrected Minimum-Edit Translation"}, :validation=>["\\S\\S\\S", "Please enter a full corrected translation."],
+      }
       #{ :translation => {:required => true, :label => "Corrected Translation 2 with minimum edits"}}
       #{ :translation => {:required => true, :label => "Corrected Translation 3 with minimum edits"}}
     end
@@ -106,24 +107,20 @@ class HTERJob < Xmas::JSJob
     def problem
       <<-TABLE
       <b>Human Translation:</b><ul><li><%= @ref %></ul>
-      <b>Machine Translation:</b><ul><li><%= @hyp %></ul>
+      <b>Machine Translation:</b><ul><li class='hyp'><%= @hyp %></ul>
       TABLE
     end
     
     def js
       <<-JS
-        window.addEvent('load', function(){
-          $$('input.none').each(function(i){
-            i.addEvent('click', function(){
-              var id = this.getParent('div').getParent().get('id')
-              var awesome = eval(id)
-              if(this.checked)
-                 awesome.stopValidation()
-              else
-                 awesome.addValidation()
-            })
-          })
+      window.addEvent('load', function() {
+        $$('.wrapper').each(function(elt) {
+          var hyp = elt.getElement('.hyp')
+          if (hyp == null) return
+          var text = hyp.innerHTML.replace(/^\s+|\s+$/,'')
+          elt.getElement('input.translation').value = text
         })
+      })
       JS
     end
     
