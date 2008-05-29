@@ -3,21 +3,21 @@ require 'open-uri'
 require 'yaml'
 require 'fileutils'
 
-class HTERJob < Xmas::JSJob
-  USET = "hter"
+class HTERJob2 < Xmas::JSJob
+  USET = "hter2"
   
   class << self
     #okay, so this is the form that they'll be filling in.
     def form_json
       [
-       ['translation', ''],
+       ['#translation', ''],
        #['translation2', '<%= @hyp_n %>'],
        #['translation3', '<%= @hyp_r %>'],
        ['comment', '']]
     end
      
     def form_labels
-      { :translation => {:required => true, :label => "Corrected Minimum-Edit Translation"}, :validation=>["\\S\\S\\S", "Please enter a full corrected translation."],
+      { :translation => {:required => true, :label => "Please correct the translation with as few edits as possible."}, :validation=>["\\S\\S\\S", "Please enter a full corrected translation."],
       }
       #{ :translation => {:required => true, :label => "Corrected Translation 2 with minimum edits"}}
       #{ :translation => {:required => true, :label => "Corrected Translation 3 with minimum edits"}}
@@ -42,9 +42,8 @@ class HTERJob < Xmas::JSJob
       In each question you will be given two sentences:  the <b>Human Translation</b> of a 
       foreign-language sentence, and an automatic <b>Machine Translation</b> of that same sentence.
       <p>
-      We want you to create a <b>Corrected Translation</b> that makes the Machine Translation understandable, with roughly the same <b>meaning</b> as 
-      the Human Translation, but with <b>as few edits as possible</b> to the original Machine Translation. In particular, we want the closest
-      understandable translation with the fewest word insertions, deletions, substitions, and shifts possible.<p>
+      We want you to create a <b>Corrected Translation</b> that makes the Machine Translation understandable with <b>as few edits as possible</b> 
+      to the original Machine Translation. More specifically, we want the closest understandable translation with the fewest word insertions, deletions, substitions, and shifts possible.<p>
       Here are some examples:
 <hr>
       <h3>Example 1</h3>
@@ -92,15 +91,15 @@ class HTERJob < Xmas::JSJob
       more than 500.
       </ul>
       <hr>
-      
-      You should start by copying and pasting the Machine Translation to the answer box, and then make edits to that string.
-          YO
+
+      We've inserted the uncorrected Machine Translation into the answer box for you to edit.
+      YO
     end
     
     def styles
       %{
         ul {margin-top: 0}
-        .translation { font-size: 120%; width: 90% }
+        .translation { width: 100% }
       }
     end
     
@@ -118,14 +117,14 @@ class HTERJob < Xmas::JSJob
           var hyp = elt.getElement('.hyp')
           if (hyp == null) return
           var text = hyp.innerHTML.replace(/^\s+|\s+$/,'')
-          elt.getElement('input.translation').value = text
+          elt.getElement('textarea.translation').value = text
         })
       })
       JS
     end
     
     def units_per_hit
-      15
+      10
     end
     
     def title
@@ -141,7 +140,7 @@ class HTERJob < Xmas::JSJob
     end
     
     def reward_cents
-      4
+      6
     end
     
     
