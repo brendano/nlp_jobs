@@ -100,6 +100,7 @@ class HTERJob < Xmas::JSJob
       %{
         ul {margin-top: 0}
         .translation { width: 100% }
+        textarea { font-family: sans-serif }
       }
     end
     
@@ -119,30 +120,31 @@ class HTERJob < Xmas::JSJob
           var text = hyp.innerHTML.replace(/^\s+|\s+$/,'')
           elt.getElement('textarea.translation').value = text
         })
+        $$('textarea').set('rows',6)
       })
       JS
     end
     
-    def units_per_hit
-      5
-    end
     
     def title
       "Create an understandable sentence with the fewest number of changes from an automatic translation."
     end
     
     def description
-      "This version pays several times better than the previously posted one.  Thanks for the angry feedback, y'all :)"
+      "This version pays much better than the previously posted one.  Thanks for the angry feedback, y'all :)"
     end
-    
-    def judgements_per_unit
-      10
+
+    def units_per_hit
+      5
     end
     
     def reward_cents
-      3
+      7
     end
-    
+
+    def judgements_per_unit
+      10
+    end
     
     def keywords
       "translation, correction, editing, minimum edits"
