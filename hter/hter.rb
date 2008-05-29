@@ -4,7 +4,7 @@ require 'yaml'
 require 'fileutils'
 
 class HTERJob < Xmas::JSJob
-  USET = "hter"
+  USET = "hter3"
   
   class << self
     #okay, so this is the form that they'll be filling in.
@@ -125,15 +125,15 @@ class HTERJob < Xmas::JSJob
     end
     
     def units_per_hit
-      15
+      5
     end
     
     def title
-      "Create an understandable sentence with the smallest number of changes from an automatic translation."
+      "Create an understandable sentence with the fewest number of changes from an automatic translation."
     end
     
     def description
-      "Write an understandable sentence with the fewest number of word changes from the automatic translation."
+      "This version pays several times better than the previously posted one.  Thanks for the angry feedback, y'all :)"
     end
     
     def judgements_per_unit
@@ -141,7 +141,7 @@ class HTERJob < Xmas::JSJob
     end
     
     def reward_cents
-      4
+      3
     end
     
     
