@@ -45,7 +45,7 @@
 %\setlength\titlebox{4.6cm}    % Expanding the titlebox
 \setlength\titlebox{6.0cm}    % Expanding the titlebox
 
-\title{ Evaluating Non-Expert Annotations for Natural Language Tasks }
+\title{ Cheap and Fast  ---  But is it Good?\\Evaluating Non-Expert Annotations for Natural Language Tasks }
 
 %\author{Rion Snow \hspace{.3cm}  Rajat Raina\\
 %Computer Science Department\\
@@ -68,7 +68,7 @@
 %  {\tt email@domain}  \And
 %  Sushant Prakash\\
 %  Affiliation / Address line 1\\
-%  Affiliation / Address line 2\\
+%  Affiliation / Address line 2\
 %  Affiliation / Address line 3\\
 %  {\tt email@domain}}
 
@@ -79,23 +79,15 @@
 \begin{abstract}
 \small{Human linguistic annotation is crucial for many natural
 language processing tasks, but acquiring such labels can be extremely expensive and time-consuming.
-We explore Amazon's Mechanical Turk system,
-a significantly cheaper and quicker method
-for collecting annotations from a broad base of non-expert volunteer
-contributors over the Web.
-We investigated five sufficiently simple tasks:
-recognizing textual entailment, affect recognition, word similarity,
+We explore the use of Amazon's Mechanical Turk system, a significantly cheaper and faster method for collecting annotations from a broad base of paid non-expert contributors over the Web.  We investigate five simple tasks:  recognizing textual entailment, affect recognition, word similarity,
 event temporal ordering, and word sense disambiguation.
-For all five, we show high agreement between Mechanical Turk volunteers
-and existing gold standard labels provided by expert labelers.
-For the task of affect recognition, we also show that using Turker
+For all five, we show high agreement between Mechanical Turk non-expert annotations
+and existing gold standard labels provided by expert labelers.  
+For the task of affect recognition, we also show that using non-expert
 labels for training machine learning algorthms can be as effective
-as using gold standard annotations from experts.  
-We ofter some methodological insights, and include bias correction,
-and time and completion studies.  We conclude that 
-many (although not all) large labeling tasks can be effectively designed and carried
-out in this method at a fraction of the usual monetary and temporal
-costs. }
+as using gold standard annotations from experts.  We propose a technique for bias correction that significantly improves annotation quality on two tasks.  We conclude that 
+many large labeling tasks can be effectively designed and carried
+out in this method at a fraction of the usual expense.}
 
 %\small{ Large scale annotation projects have been crucial in influencing the direction of research in the statistical natural language processing community.  Such projects are often extremely expensive and have led many researchers to suggest the possibility of collecting annotations from a broad base of non-expert volunteer contributors over the Web. We explore the use of Amazon's Mechanical Turk system to study whether volunteers on the web can provide reliable annotations on a variety of natural language annotation tasks with high interannotator agreement compared to existing gold standard labels provided by expert labelers. The tasks include recognizing textual entailment, affect recognition, word similarity, temporal event annotation, and word sense disambiguation. We demonstrate that for a wide range of different natural language annotation tasks, averaging over annotations from labelers on Mechanical Turk can yield high quality annotations. We further provide an analysis of relative payment rates and strategies for minimizing the required number of annotators necessary for high quality annotations.  Finally we demonstrate that using Turker labels for training machine learning algorthms can be as effective as using gold standard annotations from experts.  We conclude that many large labeling tasks can be effectively designed and carried out in this method at a fraction of the usual monetary and temporal costs. }
 
@@ -114,7 +106,7 @@ The construction of these datasets, however, is extremely expensive in annotator
 and quality of data available to them \cite{Banko:01}, a promising alternative, at least for some tasks, is collecting annotations from non-expert volunteers.
 
 In this work we explore such a system, Amazon Mechanical Turk\footnote{Amazon Mechanical Turk may be found online at
-http://mturk.com.} (AMT) to study whether non-expert volunteers on
+\texttt{\scriptsize{http://mturk.com.}}} (AMT) to study whether non-expert volunteers on
 the web can provide reliable natural language annotations.
 Our goals are to produce high quality labels for a number of NLP tasks,
 to investigate which tasks are appropriate for this kind of annotation,
@@ -127,8 +119,7 @@ disambiguation.
 
 For each task, we used AMT to annotate data and
 measured the quality of the annotations by comparing them with the
-gold standard (expert) labels on the same data, and by using the AMT annotations to train machine learning classifiers.
-In the next sections  of the paper
+gold standard (expert) labels on the same data, and by using the AMT annotations to train machine learning classifiers. In the next sections  of the paper
 we introduce the five tasks and the evaluation metrics, as well as
 our new methodological tools.
 
@@ -145,17 +136,11 @@ our new methodological tools.
 
 %[[ Optional: Rather than only being a method for collecting final annotations, AMT may also be used as a cost-effective means to perform user studies for annotation tasks across a wider population;  when developing guidelines Some things you can do with Mechanical Turk:  while considering the actual.  \cite{CorbettBlog:07} writes on the experience of developing a set of guidelines for annotating chemical named entitites in scientific text \cite{Corbett:07}, writes that:  ``Having some framework where I could make variations in the annotation guidelines, re-annotate a corpus and see how it affects a task which can be evaluated against some ‘wild’ data would be very helpful in evaluating the guidelines."  Services like Mechanical Turk make tasks such as this not only possible, but also cost-effective.]]
 
-%\begin{figure}[h]
-%\centeringG
-%\includegraphics[width=8cm]{verb_prere}
-%\caption{Verb Precision/Recall} \label{}
-%\end{figure}
-
 %, TREC \cite{TREC} 
 
 \section{Related Work}
 
-The idea of collecting valuable annotations for use in machine learning from volunteer contributors has been employed for a variety of tasks.   Luis von Ahn pioneered the collection of data via online annotation tasks in the form of games, including the ESPGame for labeling images \cite{espgame} and Verbosity for filling in word relations \cite{verbosity}.  The Open Mind Inititative \cite{OpenMind} has taken a similar approach, attempting to make such tasks as annotating word sense \cite{WordExpert} and common-sense word relations \cite{OpenMindCommonSense} sufficiently ``easy and fun'' to entice users into freely labeling data.
+The idea of collecting valuable annotations for use in machine learning from volunteer contributors has been employed for a variety of tasks. Luis von Ahn pioneered the collection of data via online annotation tasks in the form of games, including the ESPGame for labeling images \cite{espgame} and Verbosity for annotating word relations \cite{verbosity}.  The Open Mind Inititative \cite{OpenMind} has taken a similar approach, attempting to make such tasks as annotating word sense \cite{WordExpert} and common-sense word relations \cite{OpenMindCommonSense} sufficiently ``easy and fun'' to entice users into freely labeling data.
 
 There have been an increasing number of experiments using Mechanical Turk for annotation.  In \cite{Su:07} workers provided output for four tasks in attribute extraction and entity resolution, including hotel name resolution, and extraction of age, product brand, and product model. Using previously acquired gold-standard labels the non-expert annotations were found to have high accuracy.  In \cite{Nakov:08} workers generated paraphrases of 250 noun-noun compounds in order to improve paraphrase-based noun coumpound interpretation; here the non-expert annotations were used as the gold standard dataset for evaluation of an automatic method of noun compound paraphrasing, and no external gold standard dataset was compared against. \cite{Kaisser:08a} use AMT to help build a dataset for Question Answering. Following on to corpora constructed for the TREC QA Evaluation \cite{Voorhees:06}, where answers to factoid questions are annotated at the document level, \cite{Kaisser:08a} used AMT to annotate the answers to 8107 questions a the more fine-grained level (the \textit{sentence} containing the answer).  \cite{Kaisser:08b} examines the task of customizing the summary length of query results in a QA system; here non-experts from AMT were requested to give their opinion of what ideal summary length suited their information needs for varying query types.  \cite{Zaenen:08} studied the agreement of annotators on the problem of recognizing textual entailment (a similar task and dataset is explained in more detail in Section 4).
 
@@ -165,14 +150,14 @@ In this section we describe Amazon Mechanical Turk and the experimental design w
 
 \subsection{ Amazon Mechanical Turk }
 
-We employ the Amazon Mechanical Turk system in order to elicit annotations from non-expert volunteers.  %BTO i figure we should say it isn't a "volunteer" system really so 1 sentence:
-AMT is an online labor market where workers are paid small amounts of money to complete small tasks.  The design of the system is as follows: one is required to have an Amazon account to either submit tasks for annotations or to annotate submitted tasks.  These Amazon accounts are anonymous, but are referenced by a unique Amazon ID.  A \textit{Requester} can create a \textit{group} of \textit{Human Intelligence Tasks} (or \textit{HIT}s), each of which is a form composed of an arbitrary number of questions.  The user requesting annotations for the group of HITs can specify the number of unique annotations per HIT they are willing to pay for, as well as the reward payment for each individual HIT.  While this does not guarantee that unique people will annotate the task (since a single person could conceivably annotate tasks using multiple accounts, in violation of the user agreement), this does guarantee that annotations will be collected from unique accounts.  Annotators (variously referred to as \textit{Workers} or \textit{Turkers}) then may annotate  the tasks of their choosing. Finally, after each HIT has been annotated, the Requester has the option of approving the work and optionally giving a bonus to individual workers. There is a two-way communication channel between the task designer and the workers mediated by Amazon, and Amazon handles all financial transactions.
+We employ the Amazon Mechanical Turk system in order to elicit annotations from non-expert labelers.  %BTO i figure we should say it isn't a "volunteer" system really so 1 sentence:
+AMT is an online labor market where workers are paid small amounts of money to complete small tasks.  The design of the system is as follows: one is required to have an Amazon account to either submit tasks for annotations or to annotate submitted tasks.  These Amazon accounts are anonymous, but are referenced by a unique Amazon ID.  A \textit{Requester} can create a \textit{group} of \textit{Human Intelligence Tasks} (or \textit{HIT}s), each of which is a form composed of an arbitrary number of questions.  The user requesting annotations for the group of HITs can specify the number of unique annotations per HIT they are willing to pay for, as well as the reward payment for each individual HIT.  While this does not guarantee that unique people will annotate the task (since a single person could conceivably annotate tasks using multiple accounts, in violation of the user agreement), this does guarantee that annotations will be collected from unique accounts.  AMT also allows a requestor to restrict which workers are allowed to annotate a task by requiring that all workers have a particular set of qualifications, such as sufficient accuracy on a small test set or a minimum percentage of previously accepted submissions.  Annotators (variously referred to as \textit{Workers} or \textit{Turkers}) then may annotate  the tasks of their choosing. Finally, after each HIT has been annotated, the Requester has the option of approving the work and optionally giving a bonus to individual workers. There is a two-way communication channel between the task designer and the workers mediated by Amazon, and Amazon handles all financial transactions.
  
 %[[Describe Mechanical Turk -- history, how it works, how users are paid, etc. ]]
 
 \subsection{ Task Design }
 
-In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space, however we have published our full experimental design and the data we collect online\footnote{All tasks and collected data have been published on an anonymous website for purposes of review at http://nlpannotations.googlepages.com.}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range.  Also, although AMT allows a requestor to only allow workers under certain sets of qualifying restrictions, such as sufficient accuracy on a small test set or a minimum percentage of previously accepted submissions, we require no such qualifications in our tasks.
+In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space, however we have published our full experimental design and the data we have collected online\footnote{All tasks and collected data have been published on an anonymous website for purposes of review at \texttt{\scriptsize{http://nlpannotations.googlepages.com.}}}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range. For every task we collect ten independent annotations for each unique item; this redundancy allows us to perform an in-depth study of how data quality improves with the number of independent annotations.
 
 %[[other citations:   \cite{Chklovski:05} has specifically studied the annotation process for collecting labels on a meronym task volunteers over the web, and suggests a three-stage approach consisting of evaluation, retuning, and publication...]]
 
@@ -184,14 +169,41 @@ We analyze the quality of non-expert annotations on five tasks:  affect recognit
 
 \subsection{ Affective Text Analysis }
 
-This experiment is based on the affective text annotation task proposed in \cite{AffectiveText}, wherein each annotator is presented with a list of short headlines, such as \textit{``Outcry at N Korea 'nuclear test' ''}, and are asked to respond with numeric judgments in the interval [0-100] of the emotional content of the headline for six emotions: anger, disgust, fear, joy, sadness, and surprise;  and then, to give a numeric score in the interval [-100,100] to denote the overall \textit{valence} of the emotional content of the headline.
+This experiment is based on the affective text annotation task proposed in \cite{AffectiveText}, wherein each annotator is presented with a list of short headlines, and is asked to respond with numeric judgments in the interval [0,100] rating the emotional content of the headline for six emotions: anger, disgust, fear, joy, sadness, and surprise, and a single numeric rating in the interval [-100,100] to denote the overall positive or negative \textit{valence} of the emotional content of the headline.  For example, consider the headline-annotation pair:
+\begin{center} \textbf{Outcry at N Korea `nuclear test'} \end{center}
+\begin{equation*}
+\begin{array}{ll}
+&\small(\textit{Anger, 30}),(\textit{Disgust,30}),(\textit{Fear,30}), (\textit{Joy,0}),\\
+&\small(\textit{Sadness,20}),(\textit{Surprise,40}),(\textit{Valence,-50}).
+\end{array}
+\end{equation*}
+For our experiment we select a 100-headline sample from the original Semeval test set, and collection 10 affect annotations for each of the seven label types, for a total of 7000 affect labels.
 
-We focus on this task for two reasons;  first, the task can be effectively described to annotators with only a few lines of instruction, and second we have a full set of 1000 headlines each annotated by six experts, allowing us to give a rich comparison of the quality of non-expert-to-expert annotation.
+This task is particularly attractive for two reasons;  first, the task can be effectively described to annotators with only a few lines of instruction, and second we have a full set of 1000 headlines where each example has been annotated by six experts for all seven affect types, allowing for a rich comparison of the relative quality of expert and non-expert annotation.
 
 %Example annotation:
 %Headline:  ``Outcry at N Korea 'nuclear test' ''
 %Sample annotations:
+%
+%\begin{table}[h]
+%\footnotesize
+%    \begin{center}
+%	\begin{tabular}{|c||c c c c|}
+%	\hline
+%	Headline &  ``Outcry at N Korea `nuclear test' '' & & &  \\
+%	\end{tabular}
+%        \begin{tabular}{|c|c|c|c|c|c|c|}
+%        \hline
+%Anger & Disgust & Fear & Joy & Sadness & Surprise & Valence \\
+%	\hline
+%30 & 30 & 30 & 0 & 20 & 40 & -50\\
+%        \hline
+%        \end{tabular}
+%    \caption{Sample affect annotation for one headline}\label{exampleAFF}
+%\end{center}
+%\end{table}
 
+%
 %Anger:  30
 %Disgust: 30
 %Fear: 30
@@ -224,7 +236,7 @@ We focus on this task for two reasons;  first, the task can be effectively descr
 
 %Since we have each of six experts' annotations for the affective text analysis we are able to do the most thorough analysis of non-expert agreement.  
 
-For this evaluation we would like to compare the interannotator agreement of individual expert annotations to that of single non-expert and averaged non-expert annotations; in order to do this, we propose the following experiment:  for each individual expert annotator we compute the Pearson correlation of the labels provided by that annotator with the average of the labels of the remaining 5 expert annotators; we then average these ITA scores across all expert annotators to compute the average expert ITA  (reported in Table \ref{affectITA1} as ``E vs. E''.   We then do the same for individual non-expert annotations, averaging Pearson correlation across all sets of the five expert labelers (``NE vs. E'').  We also compute similar interannotator scores for each expert and vs. the averaged labels from all other experts and non-experts (marked as ``E vs. All'') and for each non-expert vs. the pool of other non-experts and all experts (``NE vs. All'').  We compute these ITA scores for each emotion task separately, and compute the average of all seven tasks together as ``Avg. All'', and the six emotion tasks (i.e., excluding valence) separately as ``Avg. Emo''.
+Our goal is to compare the interannotator agreement (ITA) of individual expert annotations to that of single non-expert and averaged non-expert annotations.  In the original experiment ITA is measured by calculating the Pearson correlation of one annotator's labels with the average of the labels of the other five annotators. Thus for our calculation we propose to compute the compute the same... rt annotators; we then average these ITA scores across all expert annotators to compute the average expert ITA  (reported in Table \ref{affectITA1} as ``E vs. E''.   We then do the same for individual non-expert annotations, averaging Pearson correlation across all sets of the five expert labelers (``NE vs. E'').  We also compute similar interannotator scores for each expert and vs. the averaged labels from all other experts and non-experts (marked as ``E vs. All'') and for each non-expert vs. the pool of other non-experts and all experts (``NE vs. All'').  We compute these ITA scores for each emotion task separately, and compute the average of all seven tasks together as ``Avg. All'', and the six emotion tasks (i.e., excluding valence) separately as ``Avg. Emo''.
 %[[Table :: for each emotion, average agreement of averaged Turk vs. 5 experts, compare to average agreement of expert vs. 5 experts. And graphs. ]]
 
 %perhaps:  exp. vs. expert... exp vs. all, non-exp vs. non-expert... vs. all across the top?
@@ -263,7 +275,7 @@ For this evaluation we would like to compare the interannotator agreement of ind
 \end{center}
 \end{table}
 
-The results in table \ref{affectITA1} conform to the expectation that expert judgments correlate best with both other expert judgments and other non-expert judgments.  Second, we observe that the average interannotator agreement generally increases as we add additional non-expert annotations to the gold standard; this is promising, as it suggests that the addition of the non-expert annotations in the average does increase the overall quality of the gold labels.
+The results in Table \ref{affectITA1} conform to the expectation that expert judgments correlate best with both other expert judgments and other non-expert judgments.  Second, we observe that the average interannotator agreement generally increases as we add additional non-expert annotations to the gold standard; this is promising, as it suggests that the addition of the non-expert annotations in the average does increase the overall quality of the gold labels.
 
 Next we consider averaging the labels of each possible subset of $n$ non-expert annotations for each unit, for value of $n$ in $\{1, 2, ..., 10\}$.  We then treat this average as though it is the output of a single `meta-labeler', and compute the interannotator agreement with respect to each subset of five of the six expert annotators.  We then average the results of these studies across each subset size; the result of this experiment are given in Table \ref{affectITA2} and in figure \ref{affITAfigure}.  In addition to the single meta-labeler, we ask:  what is the minimum number of non-expert annotations $k$ from which we can create a meta-labeler that has equal to or better inter-annotator agreement than an expert annotator?  In Table \ref{affectITA2} we give the minimum $k$ for each emotion, as well as the averaged inter-annotator achievement achieved by that meta-labeler consisting of $k$ non-experts (marked ``$k$-NE'').  In Figure \ref{affITAfigure} we plot the expert inter-annotator correlation as the horizontal dashed line.
 
@@ -291,11 +303,11 @@ Next we consider averaging the labels of each possible subset of $n$ non-expert 
 \end{center}
 \end{table}
 
-These results state that for all tasks except ``Fear'' we are able to achieve expert-level inter-annotator agreement with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  On average it requires only 4 non-expert annotations per example to achieve the equivalent inter-annotator agreement as a single expert annotator; using this figure we may interpret our rate of 3500 non-expert labels per dollar on this task as at least 875 expert-equivalent labels per dollar.
+These results state that for all tasks except ``Fear'' we are able to achieve expert-level inter-annotator agreement with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  On average it requires only 4 non-expert annotations per example to achieve the equivalent inter-annotator agreement as a single expert annotator. Thus, given that we paid US\$2.00 in order to collect the 7000 non-expert annotations, we may interpret our rate of 3500 non-expert labels per USD on this task as at least 875 expert-equivalent labels per USD.
 
 \begin{figure}[ht]
 \centering
-%\includegraphics[width=8cm]{figures/all_emo.eps}
+\includegraphics[width=8cm]{figures/all_emo.eps}
 \caption{Non-expert correlation for affect recognition } \label{affITAfigure}
 \end{figure}
 
@@ -311,13 +323,13 @@ These results state that for all tasks except ``Fear'' we are able to achieve ex
 
 This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}. Numerous expert and non-expert studies have shown that this is task tends to yield very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
 
-In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations / dollar).  The most surprising aspect of this study was the speed with which it was completed; the task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission, at the rate of 1724 annotations / hour.
+In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations per USD).  The most surprising aspect of this study was the speed with which it was completed; the task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission, at the rate of 1724 annotations / hour.
 
 As in the previous task we evaluate our non-expert annotations by averaging the numeric responses from each possible subset of $n$ annotators and computing the interannotator agreement with respect to the gold scores reported in \cite{MC}.  Our results are displayed in Figure \ref{restITA}, with Resnik's 0.958 correlation plotted as the horizontal line; we find that at 10 annotators we achieve a correlation of 0.952, well within the range of other studies of expert and non-expert annotations.
 
 \begin{figure}[ht]
 \centering
-%\includegraphics[width=8cm]{figures/all_rest.eps}
+\includegraphics[width=8cm]{figures/all_rest.eps}
 \caption{Inter-annotator correlation for word similarity, and agreement for RTE, event annotation, and WSD tasks } \label{restITA}
 \end{figure}
 
@@ -325,7 +337,7 @@ As in the previous task we evaluate our non-expert annotations by averaging the 
 
 \subsection{ Recognizing Textual Entailment }
 
-This task replicates the recognizing textual entailment task originally proposed in the PASCAL Recognizing Textual Entailment task \cite{rte1}; here for each question the annotator is presented with two sentences and asked whether the second sentence can be inferred from the first.  We gather 10 annotations each for all 800 sentence pairs in the PASCAL RTE-1 dataset.  For this dataset expert interannotator agreement studies have been reported as achieving 91\% and 96\% agreement over various subsections of the corpus.  For greater than 1 annotation we employ a simple voting mechanism;  further, we break ties randomly and average our performance over all possible ways to break ties.  We collect 10 annotations for each of 100 RTE sentence pairs; as displayed in Figure \ref{restITA}, we achieve a maximum accuracy of 89.7\%, averaging over the annotations of 10 workers.  We assign this task into HITs of 20 annotations apiece, each with a corresponding payment of US\$0.02, for a total cost of US\$8.00 (i.e., at a rate of 1000 annotations / dollar).
+This task replicates the recognizing textual entailment task originally proposed in the PASCAL Recognizing Textual Entailment task \cite{rte1}; here for each question the annotator is presented with two sentences and asked whether the second sentence can be inferred from the first.  We gather 10 annotations each for all 800 sentence pairs in the PASCAL RTE-1 dataset.  For this dataset expert interannotator agreement studies have been reported as achieving 91\% and 96\% agreement over various subsections of the corpus.  For greater than 1 annotation we employ a simple voting mechanism;  further, we break ties randomly and average our performance over all possible ways to break ties.  We collect 10 annotations for each of 100 RTE sentence pairs; as displayed in Figure \ref{restITA}, we achieve a maximum accuracy of 89.7\%, averaging over the annotations of 10 workers.  We assign this task into HITs of 20 annotations apiece, each with a corresponding payment of US\$0.02, for a total cost of US\$8.00 (i.e., at a rate of 1000 annotations per USD).
 
 %RTE 3
 %\cite{rte3}
@@ -340,23 +352,24 @@ This task replicates the recognizing textual entailment task originally proposed
 
 \subsection{ Event Annotation}
 
-This task is inspired by the TimeBank corpus \cite{TimeBank}; among other annotations, the TimeBank corpus contains temporal labels for event pairs, marking each pair with the temporal relation between them (out of fourteen possible relations, including before, after, during, etc. 
+This task is inspired by the TimeBank corpus \cite{TimeBank}; among other annotations, the TimeBank corpus contains temporal labels for event pairs, marking each pair with the temporal relation between them; this relationsis one of fourteen possible relations, including before, after, during, includes, etc.
+
 %The TimeBank corpus consists of (X) sentences with Y labeled verb events;  these verb events have labeled with respect to neighboring verb events into one of six categories:  ()...
 % [[ Explain the different even annotations:  before, after, overlapping, etc]]
 
-We implement a simplified version of the TimeBank event temporal annotation task: rather than annotating all fourteen event types, we restrict our consideration to the two simplest labels:  ``strictly before'' and ``strictly after''; further, we only consider verb events.  We extract the 462 verb event pairs labeled as ``strictly before'' or ``strictly after'' in the TimeBank corpus, and we present these pairs to annotators with a forced binary choice on whether two verb events occur \textit{before} or \textit{after} one another.  The results of this task are presented in Figure \ref{restITA}.  We achieve high agreement for this task, at a rate of 0.94 with simple voting over 10 annotators.  While an expert inter-annotator agreement of 0.77 was reported for the more general task of deciding over all fourteen labels on both noun and verb events, no expert ITA numbers have been reported for this simplified task.
+We implement \textit{temporal ordering} as a simplified version of the TimeBank event temporal annotation task: rather than annotating all fourteen event types, we restrict our consideration to the two simplest labels:  ``strictly before'' and ``strictly after''.  Furthermore, rather than marking both nouns and verbs in the text as possible events, we only consider possible verb events.  We extract the 462 verb event pairs labeled as ``strictly before'' or ``strictly after'' in the TimeBank corpus, and we present these  pairs to annotators with a forced binary choice on whether the first verb event in the pair occurs \textit{before} or \textit{after} one another.  The results of this task are presented in Figure \ref{restITA}.  We achieve high agreement for this task, at a rate of 0.94 with simple voting over 10 annotators (4620 total annotations). This was by far the most expensive of the five tasks, at total cost of \$13.82, a rate of only 333 annotations per USD .  While an expert inter-annotator agreement of 0.77 was reported for the more general task of deciding over all fourteen labels on both noun and verb events, no expert ITA numbers have been reported for this simplified temporal ordering task.
 
 %Second, we give annotators the set of all labeled Timebank relations, and we ask for \textit{before}, \textit{after}, and \textit{other} labels.  Here we emphasize the notion of \textit{strictly before} and \textit{strictly after}.
 %[[ Task example ]]
 
 \subsection{ Word Sense Disambiguation }
 
-In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we annotate 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{restITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard %BTO punctuation before footnote
+In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we collect 10 annotations for each of 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{restITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard %BTO punctuation before footnote
 annotation.\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}  
 %BTO wording
 After correcting this error, the non-expert accuracy rate is 100\% on the 177 examples in this task.  This is a specific example where non-expert annotations can be used to correct expert annotations.
 
-Since expert inter-annotator agreement was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17 \cite{Cai:07}, with a reported accuracy of 0.98.
+Since expert inter-annotator agreement was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17 \cite{Cai:07}, with a reported accuracy of 0.98.  For this task a total of 1770 annotations was collected as a price of US\$1.76, a rate of 1005.7 annotations per USD.
 
 %\subsection{ Machine Translation Evaluation?
 %Possible corpus:  GALE HTER evaluations
@@ -401,7 +414,7 @@ The reliability of individual workers varies.  Some are very accurate, while oth
 In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability of individual workers and correct for their biases.
 
 %BTO more explanation
-A wide number of methods have been explored to correct for the bias of annotators.  \cite{Dawid:79} consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \cite{Wiebe:99} analyze annotator agreement statistics to find bias, and also use a similar model to correct labels.
+A wide number of methods have been explored to correct for the bias of annotators.  \cite{Dawid:79} consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \cite{Wiebe:99} analyze annotator agreement statistics to find bias, and use a similar model to correct labels.
 
 Here we consider the slightly different problem of using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We restrict our attention to categorical examples, though in principle a similar method could be used with numeric data.
 
@@ -433,7 +446,6 @@ We used this model to improve accuracy on the RTE-1 and event annotation tasks. 
 \end{figure}
 
 Figure \ref{WorkerModelResults} shows improved accuracy at different numbers of annotators.  The lowest line is for the naive 50\% majority voting rule.  (This is equivalent to the model under uniform priors and equal accuracies across workers and labels.)  Each point is the data set's accuracy against the gold labels, averaged across resamplings each of which obtains $k$ annotations per example.  RTE has an average +4.0\% accuracy increase, averaged across 2 through 10 annotators.  We find a +3.4\% gain on event annotation.
-
 
 \section{ Training a system with non-expert annotations }
 
