@@ -1,5 +1,6 @@
-This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5) (format=latex 2006.2.12)  3 JUL 2008 06:47
+This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5) (format=pdflatex 2006.2.12)  3 JUL 2008 09:01
 entering extended mode
+\write18 enabled.
 **amt.tex
 (./amt.tex
 LaTeX2e <2003/12/01>
@@ -199,7 +200,7 @@ Underfull \hbox (badness 3930) in paragraph at lines 117--117
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [1
+ [1{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map}
 
 
 
@@ -210,75 +211,90 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 166.
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-[][]\OT1/ptm/m/n/9 All ex-per-i-ments and cor-re-spond-ing col-lected
+Underfull \hbox (badness 6016) in paragraph at lines 174--174
+[][]\OT1/ptm/m/n/9 All tasks and col-lected data have been pub-lished
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-\OT1/ptm/m/n/9 data have been pub-lished on an anony-mous web-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--174
-\OT1/ptm/m/n/9 site for pur-poses of re-view and may be found at
+Underfull \hbox (badness 6204) in paragraph at lines 174--174
+\OT1/ptm/m/n/9 on an anony-mous web-site for pur-poses of re-view at
  []
 
 [2]
-Overfull \hbox (3.37912pt too wide) in paragraph at lines 250--277
+Overfull \hbox (3.37912pt too wide) in paragraph at lines 234--261
  [] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [3]
-
-LaTeX Warning: Citation `restITA' on page 4 undefined on input line 342.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6510) has occurred while \output is active []
 
  [4]
+Underfull \hbox (badness 1609) in paragraph at lines 352--353
+\OT1/ptm/m/n/10.95 In this task we con-sider a very easy prob-lem
+ []
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 352--353
+\OT1/ptm/m/n/10.95 shown to pro-duce ex-tremely good re-sults; here
+ []
+
+[5]
+File: figures/workers.eps Graphic file (type eps)
+ <figures/workers.eps>
+Underfull \hbox (badness 1005) in paragraph at lines 417--418
+\OT1/ptm/m/n/10.95 ti-ma-tion with no La-pace smooth-ing, each $\OML/cmm/m/it/1
+0.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x$
+ []
+
+
+Underfull \vbox (badness 2126) has occurred while \output is active []
+
+ [6
+Non-PDF special ignored!]
+File: figures/goldcalib.eps Graphic file (type eps)
+ <figures/goldcalib.eps>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: figures/workers.eps Graphic file (type eps)
-<figures/workers.eps> [5]
-File: figures/goldcalib.eps Graphic file (type eps)
- <figures/goldcalib.eps> [6] [7]
-Underfull \hbox (badness 1005) in paragraph at lines 521--533
-[]\OT1/ptm/m/n/10 @inproceedings1034721, au-thor = Janyce M. Wiebe
- []
-
-
-Underfull \hbox (badness 2478) in paragraph at lines 521--533
-\OT1/ptm/m/n/10 = http://dx.doi.org/10.3115/1034678.1034721, pub-
- []
-
-
-Underfull \hbox (badness 1533) in paragraph at lines 571--575
+[7
+Non-PDF special ignored!]
+Underfull \hbox (badness 1533) in paragraph at lines 549--553
 []\OT1/ptm/m/n/10 Ido Da-gan, Oren Glick-man and Bernardo Magnini.
  []
 
 Missing character: There is no Ð in font ptmr7t!
 
-Underfull \hbox (badness 1371) in paragraph at lines 613--617
+Underfull \hbox (badness 1371) in paragraph at lines 591--595
 []\OT1/ptm/m/n/10 Michael Kaisser, Marti Hearst, and John B. Lowe.
  []
 
 [8]
 Missing character: There is no ’ in font ptmr7t!
- [9
-
-] (./amt.aux) ) 
+ [9] (./amt.aux) ) 
 Here is how much of TeX's memory you used:
- 1376 strings out of 95138
- 17132 string characters out of 1183036
+ 1399 strings out of 95137
+ 17337 string characters out of 1183013
  2063317 words of memory out of 4518152
- 4515 multiletter control sequences out of 10000+50000
- 17380 words of font info for 59 fonts, out of 2000000 for 2000
+ 4521 multiletter control sequences out of 10000+50000
+ 31593 words of font info for 76 fonts, out of 2000000 for 2000
  58 hyphenation exceptions out of 5000
- 27i,9n,22p,1696b,243s stack positions out of 5000i,500n,6000p,200000b,40000s
-
-Output written on amt.dvi (9 pages, 54788 bytes).
+ 27i,9n,22p,1568b,243s stack positions out of 5000i,500n,6000p,200000b,40000s
+PDF statistics:
+ 71 PDF objects out of 300000
+ 0 named destinations out of 131072
+ 1 words of extra memory for PDF output out of 10000
+</usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cm
+bx8.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmbx10.pfb><
+/usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmsy8.pfb></usr/local
+/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi6.pfb></usr/local/teTeX/sha
+re/texmf.tetex/fonts/type1/bluesky/cm/cmex10.pfb></usr/local/teTeX/share/texmf.
+tetex/fonts/type1/bluesky/cm/cmr8.pfb></usr/local/teTeX/share/texmf.tetex/fonts
+/type1/bluesky/cm/cmmi8.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/blu
+esky/cm/cmmi9.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cm
+r10.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmsy10.pfb><
+/usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi10.pfb>{/usr/loca
+l/teTeX/share/texmf.tetex/fonts/enc/dvips/psnfss/8r.enc}</usr/local/teTeX/share
+/texmf.tetex/fonts/type1/urw/times/utmri8a.pfb></usr/local/teTeX/share/texmf.te
+tex/fonts/type1/urw/times/utmr8a.pfb></usr/local/teTeX/share/texmf.tetex/fonts/
+type1/urw/times/utmb8a.pfb>
+Output written on amt.pdf (9 pages, 129414 bytes).
