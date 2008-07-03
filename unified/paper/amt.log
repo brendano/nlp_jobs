@@ -1,0 +1,284 @@
+This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5) (format=latex 2006.2.12)  3 JUL 2008 06:47
+entering extended mode
+**amt.tex
+(./amt.tex
+LaTeX2e <2003/12/01>
+Babel <v3.8d> and hyphenation patterns for american, french, german, ngerman, d
+utch, italian, norsk, portuges, spanish, swedish, nohyphenation, loaded.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/base/article.cls
+Document Class: article 2004/02/16 v1.4f Standard LaTeX document class
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/base/size11.clo
+File: size11.clo 2004/02/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./acl08.sty
+Conference Style for ACL 2005 -- released Octobe 11, 2004
+\titlebox=\skip43
+) (/usr/local/teTeX/share/texmf.tetex/tex/latex/psnfss/times.sty
+Package: times 2004/09/15 PSNFSS-v9.2 (SPQR) 
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/eucal.sty
+Package: eucal 2001/10/01 v2.2d Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 55.
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/amsfonts/eufrak.sty
+Package: eufrak 2001/10/01 v2.2e Euler Fraktur fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuFrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 61.
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/jknappen/mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup5
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/graphics.cfg
+File: graphics.cfg 2005/02/03 v1.3 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
+)
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen114
+\epsfysize=\dimen115
+)
+\sectionReduceTop=\skip47
+\sectionReduceBot=\skip48
+\abstractReduceTop=\skip49
+\abstractReduceBot=\skip50
+\captionReduceTop=\skip51
+\captionReduceBot=\skip52
+\nameReduceTop=\skip53
+\tableReduceTop=\skip54
+\tableReduceBot=\skip55
+ (./amt.aux)
+\openout1 = `amt.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 76.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 77.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 77.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/jknappen/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
+
+
+LaTeX Warning: No \author given.
+
+
+Underfull \hbox (badness 1147) in paragraph at lines 80--99
+[]\OT1/ptm/m/n/10 Human lin-guis-tic an-no-ta-tion is cru-cial for
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 109--115
+\OT1/ptm/m/n/10.95 (Mar-cus et al.,  1993), Prob-Bank (Palmer et
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 117--117
+[][]\OT1/ptm/m/n/9 Amazon Me-chan-i-cal Turk may be found on-line at
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 166.
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+[][]\OT1/ptm/m/n/9 All ex-per-i-ments and cor-re-spond-ing col-lected
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+\OT1/ptm/m/n/9 data have been pub-lished on an anony-mous web-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+\OT1/ptm/m/n/9 site for pur-poses of re-view and may be found at
+ []
+
+[2]
+Overfull \hbox (3.37912pt too wide) in paragraph at lines 250--277
+ [] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+
+LaTeX Warning: Citation `restITA' on page 4 undefined on input line 342.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figures/workers.eps Graphic file (type eps)
+<figures/workers.eps> [5]
+File: figures/goldcalib.eps Graphic file (type eps)
+ <figures/goldcalib.eps> [6] [7]
+Underfull \hbox (badness 1005) in paragraph at lines 521--533
+[]\OT1/ptm/m/n/10 @inproceedings1034721, au-thor = Janyce M. Wiebe
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 521--533
+\OT1/ptm/m/n/10 = http://dx.doi.org/10.3115/1034678.1034721, pub-
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 571--575
+[]\OT1/ptm/m/n/10 Ido Da-gan, Oren Glick-man and Bernardo Magnini.
+ []
+
+Missing character: There is no Ð in font ptmr7t!
+
+Underfull \hbox (badness 1371) in paragraph at lines 613--617
+[]\OT1/ptm/m/n/10 Michael Kaisser, Marti Hearst, and John B. Lowe.
+ []
+
+[8]
+Missing character: There is no ’ in font ptmr7t!
+ [9
+
+] (./amt.aux) ) 
+Here is how much of TeX's memory you used:
+ 1376 strings out of 95138
+ 17132 string characters out of 1183036
+ 2063317 words of memory out of 4518152
+ 4515 multiletter control sequences out of 10000+50000
+ 17380 words of font info for 59 fonts, out of 2000000 for 2000
+ 58 hyphenation exceptions out of 5000
+ 27i,9n,22p,1696b,243s stack positions out of 5000i,500n,6000p,200000b,40000s
+
+Output written on amt.dvi (9 pages, 54788 bytes).
