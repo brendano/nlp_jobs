@@ -155,7 +155,7 @@ our new methodological tools.
 
 \section{Related Work}
 
-The idea of collecting valuable annotations for use in machine learning from volunteer contributors has been employed for a variety of tasks;  Luis von Ahn pioneered the collection of data via online annotation tasks in the form of games, including the ESPGame for labeling images \cite{espgame} and Verbosity for filling in word relations \cite{verbosity}.  The Open Mind Inititative \cite{OpenMind} has taken a similar approach, attempting to make such tasks as annotating word sense \cite{WordExpert} and common-sense word relations \cite{OpenMindCommonSense} sufficiently ``easy and fun'' to entice users into freely labeling data.
+The idea of collecting valuable annotations for use in machine learning from volunteer contributors has been employed for a variety of tasks.   Luis von Ahn pioneered the collection of data via online annotation tasks in the form of games, including the ESPGame for labeling images \cite{espgame} and Verbosity for filling in word relations \cite{verbosity}.  The Open Mind Inititative \cite{OpenMind} has taken a similar approach, attempting to make such tasks as annotating word sense \cite{WordExpert} and common-sense word relations \cite{OpenMindCommonSense} sufficiently ``easy and fun'' to entice users into freely labeling data.
 
 There have been an increasing number of experiments using Mechanical Turk for annotation.  In \cite{Su:07} workers provided output for four tasks in attribute extraction and entity resolution, including hotel name resolution, and extraction of age, product brand, and product model. Using previously acquired gold-standard labels the non-expert annotations were found to have high accuracy.  In \cite{Nakov:08} workers generated paraphrases of 250 noun-noun compounds in order to improve paraphrase-based noun coumpound interpretation; here the non-expert annotations were used as the gold standard dataset for evaluation of an automatic method of noun compound paraphrasing, and no external gold standard dataset was compared against. \cite{Kaisser:08a} use AMT to help build a dataset for Question Answering. Following on to corpora constructed for the TREC QA Evaluation \cite{Voorhees:06}, where answers to factoid questions are annotated at the document level, \cite{Kaisser:08a} used AMT to annotate the answers to 8107 questions a the more fine-grained level (the \textit{sentence} containing the answer).  \cite{Kaisser:08b} examines the task of customizing the summary length of query results in a QA system; here non-experts from AMT were requested to give their opinion of what ideal summary length suited their information needs for varying query types.  \cite{Zaenen:08} studied the agreement of annotators on the problem of recognizing textual entailment (a similar task and dataset is explained in more detail in Section 4).
 
@@ -165,7 +165,8 @@ In this section we describe Amazon Mechanical Turk and the experimental design w
 
 \subsection{ Amazon Mechanical Turk }
 
-We employ the Amazon Mechanical Turk system in order to elicit annotations from non-expert volunteers.  The design of the system is as follows: one is required to have an Amazon account to either submit tasks for annotations or to annotate submitted tasks.  These Amazon accounts are anonymous, but are referenced by a unique Amazon ID.  A \textit{Requester} can create a \textit{group} of \textit{Human Intelligence Tasks} (or \textit{HIT}s), and each \textit{HIT} may be composed of an arbitrary number of questions.  The user requesting annotations for the group of HITs can specify the number of unique annotations per HIT they are willing to pay for, as well as the price of each individual HIT.  While this does not guarantee that unique people will annotate the task (since a single person could conceivably annotate tasks using multiple accounts, in violation of the user agreement), this does guarantee that annotations will be collected from unique accounts.  Annotators (variously referred to as \textit{Workers} or \textit{Turkers}) then may annotate  the tasks of their choosing. Finally, after each HIT has been annotated, the Requester has the option of approving the work and optionally giving a bonus to individual workers. There is a two-way communication channel between the task designer and the workers mediated by Amazon, and Amazon handles all financial transactions.
+We employ the Amazon Mechanical Turk system in order to elicit annotations from non-expert volunteers.  %BTO i figure we should say it isn't a "volunteer" system really so 1 sentence:
+AMT is an online labor market where workers are paid small amounts of money to complete small tasks.  The design of the system is as follows: one is required to have an Amazon account to either submit tasks for annotations or to annotate submitted tasks.  These Amazon accounts are anonymous, but are referenced by a unique Amazon ID.  A \textit{Requester} can create a \textit{group} of \textit{Human Intelligence Tasks} (or \textit{HIT}s), each of which is a form composed of an arbitrary number of questions.  The user requesting annotations for the group of HITs can specify the number of unique annotations per HIT they are willing to pay for, as well as the reward payment for each individual HIT.  While this does not guarantee that unique people will annotate the task (since a single person could conceivably annotate tasks using multiple accounts, in violation of the user agreement), this does guarantee that annotations will be collected from unique accounts.  Annotators (variously referred to as \textit{Workers} or \textit{Turkers}) then may annotate  the tasks of their choosing. Finally, after each HIT has been annotated, the Requester has the option of approving the work and optionally giving a bonus to individual workers. There is a two-way communication channel between the task designer and the workers mediated by Amazon, and Amazon handles all financial transactions.
  
 %[[Describe Mechanical Turk -- history, how it works, how users are paid, etc. ]]
 
@@ -270,8 +271,8 @@ Next we consider averaging the labels of each possible subset of $n$ non-expert 
 \footnotesize
     \begin{center}
         \begin{tabular}{|c||c|c|c|c|}
-        \hline
-        Emotion & E & 10-NE & $k$ & $k$-NE \\
+        \hline %BTO more explicit
+        Emotion & 1-Expert & 10-NE & $k$ & $k$-NE \\
         \hline
         Anger & 0.459 &  0.675 & 2 & 0.536 \\
         Disgust & 0.583 & 0.746 & 2 & 0.627 \\
@@ -282,10 +283,11 @@ Next we consider averaging the labels of each possible subset of $n$ non-expert 
         Valence & 0.759 & 0.844 & 5 & 0.803\\
         \hline
         Avg. Emo. & 0.576 & 0.669 & 4 & 0.589 \\
-        Avg. All & 0.603 & 0.694 & 4 & 0613 \\
+        Avg. All & 0.603 & 0.694 & 4 & 0.613 \\  %BTO typo
         \hline
         \end{tabular}
-    \caption{Average expert and averaged correlation over 10 non-experts on test-set}\label{affectITA2}
+        %BTO more explicit
+    \caption{Average expert and averaged correlation over 10 non-experts on test-set.  $k$ is the minimum number of non-experts needed to beat an average expert.}\label{affectITA2}
 \end{center}
 \end{table}
 
@@ -309,7 +311,7 @@ These results state that for all tasks except ``Fear'' we are able to achieve ex
 
 This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}. Numerous expert and non-expert studies have shown that this is task tends to yield very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
 
-In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations / dollar).  The most surprising aspect of this study was the speed with which it was completed; this task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission, at the rate of 1724 annotations / hour.
+In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations / dollar).  The most surprising aspect of this study was the speed with which it was completed; the task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission, at the rate of 1724 annotations / hour.
 
 As in the previous task we evaluate our non-expert annotations by averaging the numeric responses from each possible subset of $n$ annotators and computing the interannotator agreement with respect to the gold scores reported in \cite{MC}.  Our results are displayed in Figure \ref{restITA}, with Resnik's 0.958 correlation plotted as the horizontal line; we find that at 10 annotators we achieve a correlation of 0.952, well within the range of other studies of expert and non-expert annotations.
 
@@ -349,9 +351,12 @@ We implement a simplified version of the TimeBank event temporal annotation task
 
 \subsection{ Word Sense Disambiguation }
 
-In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we annotate 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{restITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard annotation\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}.  Hence correcting this error actually corresponds to a non-expert accuracy rate of 100\% on the 177 examples in this task.  This provides a specific example in which non-expert annotations can be used to correct expert annotations.
+In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we annotate 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{restITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard %BTO punctuation before footnote
+annotation.\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}  
+%BTO wording
+After correcting this error, the non-expert accuracy rate is 100\% on the 177 examples in this task.  This is a specific example where non-expert annotations can be used to correct expert annotations.
 
-Since expert inter-annotator agreement was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17\cite{Cai:07}, with a reported accuracy of 0.98.
+Since expert inter-annotator agreement was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17 \cite{Cai:07}, with a reported accuracy of 0.98.
 
 %\subsection{ Machine Translation Evaluation?
 %Possible corpus:  GALE HTER evaluations
@@ -385,7 +390,7 @@ In Table \ref{costs} we give a summary of the costs associated with obtaining th
 
 \section{ Bias correction for non-expert annotators  }
 
-The reliability of individual workers varies.  Some are very accurate, while others are more careless and make mistakes; and a small few give very noisy responses.  Furthermore, for most AMT data collection experiments, a relatively small number of workers do a large portion of the task, since workers may do as much or as little as they please.  Figure \ref{Workers} shows accuracy rates for individual workers for one task.  Both the overall variability, as well as the prospect of identifying high-volume but low-quality workers, suggest that controlling individual worker quality could yield higher quality overall judgments.
+The reliability of individual workers varies.  Some are very accurate, while others are more careless and make mistakes; and a small few give very noisy responses.  Furthermore, for most AMT data collection experiments, a relatively small number of workers do a large portion of the task, since workers may do as much or as little as they please.  Figure \ref{Workers} shows accuracy rates for individual workers on one task.  Both the overall variability, as well as the prospect of identifying high-volume but low-quality workers, suggest that controlling individual worker quality could yield higher quality overall judgments.
 
 \begin{figure}[t]
 \centering
@@ -395,13 +400,14 @@ The reliability of individual workers varies.  Some are very accurate, while oth
 
 In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability of individual workers and correct for their biases.
 
-A wide number of methods have been explored to correct for the bias of annotators.  \cite{Dawid:79}  introduced an EM algorithm to estimate clinician diagnosis biases for unknown labels.  It is similar to the one developed below in using a multinomial Naive Bayes setup.  \cite{Wiebe:99} analyze annotator agreement statistics to find bias, and also use a similar model to correct labels.
+%BTO more explanation
+A wide number of methods have been explored to correct for the bias of annotators.  \cite{Dawid:79} consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \cite{Wiebe:99} analyze annotator agreement statistics to find bias, and also use a similar model to correct labels.
 
-Here we consider the problem of using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We restrict our attention to categorical examples, though in principle a similar method could be used with numeric data.
+Here we consider the slightly different problem of using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We restrict our attention to categorical examples, though in principle a similar method could be used with numeric data.
 
 \subsection{ Bias correction in categorical data }
 
-We model labels and workers with a multinomial model similar to Naive Bayes.
+Following Dawid and Skeene, we model labels and workers with a multinomial model similar to Naive Bayes.
 Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, .. y_{iW}$.  A worker's conditional probability of response is modeled as multinomial.  Each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
 
 
@@ -414,11 +420,11 @@ To infer the posterior probability of the true label for a new example, worker j
 &=& \sum_w \log \frac{ P(y_{iw} | x_i = Y) }{ P(y_{iw} | x_i = N) } + \log \frac{P(x_i=Y)}{P(x_i=N)} \\
 \end{eqnarray*}
 
-The worker response likelihoods $P(y_w | x=Y)$ and $P(y_w | x=N)$ can be directly estimated from frequencies of worker performance on gold standard examples.  (Under maximum likelihood estimation with no Lapace smoothing, each $y_w | x$ is just the worker's empirical confusion matrix.)  For MAP label estimation, the above equation describes a weighted voting rule: each worker's vote is weighted by their log likelihood ratio for their given response.  Intuitively, workers who are more than 50\% accurate have positive votes; workers whose judgments are pure noise have zero votes; and anticorrelated workers have negative votes.  (A simpler form of the model only considers accuracy rates, thus weighting worker votes by $\log \frac{\textrm{acc}_w}{(1-\textrm{acc}_w)}$.  But we use the full unconstrained multinomial model here.)
+The worker response likelihoods $P(y_w | x=Y)$ and $P(y_w | x=N)$ can be directly estimated from frequencies of worker performance on gold standard examples.  (Under maximum likelihood estimation with no Lapace smoothing, each $y_w | x$ is just the worker's empirical confusion matrix.)  For MAP label estimation, the above equation describes a weighted voting rule: each worker's vote is weighted by their log likelihood ratio for their given response.  Intuitively, workers who are more than 50\% accurate have positive votes; workers whose judgments are pure noise have zero votes; and anticorrelated workers have negative votes.  (A simpler form of the model only considers accuracy rates, thus weighting worker votes by $\log \frac{\textrm{acc}_w}{1-\textrm{acc}_w}$.  But we use the full unconstrained multinomial model here.)
 
 \subsubsection{ Example tasks: RTE-1 and event annotation }
 
-We used this model to improve accuracy on the RTE-1 and event annotation tasks.  (The other categorical task, word sense disambiguation, could not be improved because it already had maximum accuracy.)  First we took a sample of annotations giving $k$ responses per example.  Within this sample, we trained and tested the above model via 20-fold cross-validation across examples.  Workers models were fit using Laplace smoothing of 1 pseudocount; label priors were uniform, which was reasonably similar to the empirical distribution for both tasks.
+We used this model to improve accuracy on the RTE-1 and event annotation tasks.  (The other categorical task, word sense disambiguation, could not be improved because it already had maximum accuracy.)  First we took a sample of annotations giving $k$ responses per example.  Within this sample, we trained and tested via 20-fold cross-validation across examples.  Worker models were fit using Laplace smoothing of 1 pseudocount; label priors were uniform, which was reasonably similar to the empirical distribution for both tasks.
 
 \begin{figure}[ht]
 \centering
@@ -426,7 +432,7 @@ We used this model to improve accuracy on the RTE-1 and event annotation tasks. 
 \caption{Gold-calibrated labels versus raw labels} \label{WorkerModelResults}
 \end{figure}
 
-Figure \ref{WorkerModelResults} shows improved accuracy at different numbers of annotators.  The lowest line is for the naive 50\% majority voting rule.  (This is equivalent to the model under uniform priors and equal accuracies across workers and labels.)  Each point is the data set's accuracy against the gold labels, averaged across resamplings each of which obtains $k$ annotations per example.  RTE has an average +.040 accuracy rate increase, averaged across 2 through 10 annotators; and similarly +.034 for event annotation.
+Figure \ref{WorkerModelResults} shows improved accuracy at different numbers of annotators.  The lowest line is for the naive 50\% majority voting rule.  (This is equivalent to the model under uniform priors and equal accuracies across workers and labels.)  Each point is the data set's accuracy against the gold labels, averaged across resamplings each of which obtains $k$ annotations per example.  RTE has an average +4.0\% accuracy increase, averaged across 2 through 10 annotators.  We find a +3.4\% gain on event annotation.
 
 
 \section{ Training a system with non-expert annotations }
@@ -461,7 +467,8 @@ Here we compare the performance of this model as trained on non-expert annotatio
     \begin{center}
         \begin{tabular}{|c||c|c|c|c|}
         \hline
-        Emotion & Exp & 10-NE & $k$ & $k$-NE \\
+        %BTO more explicit
+        Emotion & 1-Expert & 10-NE & $k$ & $k$-NE \\
         \hline
         Anger & 0.084 & 0.233 & 1 & 0.172 \\
         Disgust & 0.130 & 0.231 & 1 & 0.185 \\
@@ -475,13 +482,14 @@ Here we compare the performance of this model as trained on non-expert annotatio
         Avg. All & 0.122 & 0.191 & 1 & 0.137 \\
         \hline
         \end{tabular}
-    \caption{Performance comparison of expert-trained and non-expert-trained classifier on test-set}\label{affectSWAT}
+
+    \caption{Performance comparison of expert-trained and non-expert-trained classifier on test-set.  $k$ is the minimum number of non-experts needed to beat an average expert.}\label{affectSWAT}
 \end{center}
 \end{table}
 
-For this evaluation we would like to compare the performance of a system trained on non-expert annotations to that of one trained with expert annotations; in order to do this, we propose the following experiment:  for each expert annotator we train a system using only the judgments provided by that annotator, and then create a gold standard test set using the average of the responses of the remaining five labelers on that set.  In this way we create six independent expert-trained systems and compute the average across their performance, calculated as Pearson correlation to the gold standard; this is reported in the ``Exp'' column of Table \ref{affectSWAT}.
+For this evaluation we would like to compare the performance of a system trained on non-expert annotations to that of one trained with expert annotations; in order to do this, we propose the following experiment:  for each expert annotator we train a system using only the judgments provided by that annotator, and then create a gold standard test set using the average of the responses of the remaining five labelers on that set.  In this way we create six independent expert-trained systems and compute the average across their performance, calculated as Pearson correlation to the gold standard; this is reported in the ``1-Expert'' column of Table \ref{affectSWAT}.
 
-Next we train systems using non-expert lables;  for each possible subset of $n$ annotators, for $n$ in the interval $[1,10]$ we train a new system, and evaluate calculating Pearson correlation with the same set of gold standard datasets used for the expert-trained system evaluation. We then average the results of these studies across each subset size; the result of this experiment are given in Table \ref{affectSWAT}. %and in figure [[figure]].
+Next we train systems using non-expert lables;  for each possible subset of $n$ annotators, for $n$ in  $\{1, 2, ..., 10\}$ we train a new system, and evaluate calculating Pearson correlation with the same set of gold standard datasets used for the expert-trained system evaluation. We then average the results of these studies across each subset size; the result of this experiment are given in Table \ref{affectSWAT}. %and in figure [[figure]].
 
 As in Table \ref{affectITA2} we calculate the minimum number of non-expert annotations per example $k$ required on average to achieve similar performance to the expert annotations; surprisingly we find that for five of the seven tasks, the average system trained with a single set of non-expert annotations outperforms the average system trained with the labels from a single expert.  One possible hypothesis for the cause of this non-intuitive result is that individual labelers (including experts) tend to have a strong bias, and since multiple non-expert labelers may contribute to a single set of non-expert annotations, the annotator diversity within the single set of labels may have the effect of reducing annotator bias and thus increasing system performance.
 
