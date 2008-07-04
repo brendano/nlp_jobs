@@ -1,6 +1,5 @@
-This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5) (format=pdflatex 2006.2.12)  3 JUL 2008 09:01
+This is pdfeTeX, Version 3.141592-1.30.4-2.2 (Web2C 7.5.5) (format=latex 2006.2.12)  3 JUL 2008 18:38
 entering extended mode
-\write18 enabled.
 **amt.tex
 (./amt.tex
 LaTeX2e <2003/12/01>
@@ -183,24 +182,33 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 LaTeX Warning: No \author given.
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 80--99
+Underfull \hbox (badness 1147) in paragraph at lines 80--91
 []\OT1/ptm/m/n/10 Human lin-guis-tic an-no-ta-tion is cru-cial for
  []
 
 
-Underfull \hbox (badness 2302) in paragraph at lines 109--115
-\OT1/ptm/m/n/10.95 (Mar-cus et al.,  1993), Prob-Bank (Palmer et
+Underfull \hbox (badness 1708) in paragraph at lines 80--91
+\OT1/ptm/m/n/10 high agree-ment be-tween Me-chan-i-cal Turk
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 117--117
+Underfull \hbox (badness 2302) in paragraph at lines 101--107
+\OT1/ptm/m/n/10.95 (Mar-cus et al.,  1993), Prob-Bank (Palmer et
+ []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 109.
+
+(/usr/local/teTeX/share/texmf.tetex/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 3930) in paragraph at lines 109--109
 [][]\OT1/ptm/m/n/9 Amazon Me-chan-i-cal Turk may be found on-line at
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [1{/usr/local/teTeX/share/texmf.local/fonts/map/pdftex/updmap/pdftex.map}
+ [1
 
 
 
@@ -209,92 +217,71 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 166.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 
-Underfull \hbox (badness 6016) in paragraph at lines 174--174
+Underfull \hbox (badness 6016) in paragraph at lines 160--160
 [][]\OT1/ptm/m/n/9 All tasks and col-lected data have been pub-lished
  []
 
 
-Underfull \hbox (badness 6204) in paragraph at lines 174--174
+Underfull \hbox (badness 6204) in paragraph at lines 160--160
 \OT1/ptm/m/n/9 on an anony-mous web-site for pur-poses of re-view at
  []
 
 [2]
-Overfull \hbox (3.37912pt too wide) in paragraph at lines 234--261
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 176.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 177.
+
+
+Overfull \hbox (3.37912pt too wide) in paragraph at lines 247--274
  [] 
  []
 
 [3]
-Underfull \vbox (badness 6510) has occurred while \output is active []
+Underfull \vbox (badness 3428) has occurred while \output is active []
 
  [4]
-Underfull \hbox (badness 1609) in paragraph at lines 352--353
+Underfull \hbox (badness 1609) in paragraph at lines 367--371
 \OT1/ptm/m/n/10.95 In this task we con-sider a very easy prob-lem
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 352--353
+Underfull \hbox (badness 1014) in paragraph at lines 367--371
 \OT1/ptm/m/n/10.95 shown to pro-duce ex-tremely good re-sults; here
  []
 
 [5]
 File: figures/workers.eps Graphic file (type eps)
- <figures/workers.eps>
-Underfull \hbox (badness 1005) in paragraph at lines 417--418
+ <figures/workers.eps> [6]
+Underfull \hbox (badness 1005) in paragraph at lines 436--437
 \OT1/ptm/m/n/10.95 ti-ma-tion with no La-pace smooth-ing, each $\OML/cmm/m/it/1
 0.95 y[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 x$
  []
 
-
-Underfull \vbox (badness 2126) has occurred while \output is active []
-
- [6
-Non-PDF special ignored!]
 File: figures/goldcalib.eps Graphic file (type eps)
- <figures/goldcalib.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7
-Non-PDF special ignored!]
-Underfull \hbox (badness 1533) in paragraph at lines 549--553
+<figures/goldcalib.eps> [7] [8]
+Underfull \hbox (badness 1533) in paragraph at lines 571--575
 []\OT1/ptm/m/n/10 Ido Da-gan, Oren Glick-man and Bernardo Magnini.
  []
 
 Missing character: There is no Ð in font ptmr7t!
 
-Underfull \hbox (badness 1371) in paragraph at lines 591--595
+Underfull \hbox (badness 1371) in paragraph at lines 613--617
 []\OT1/ptm/m/n/10 Michael Kaisser, Marti Hearst, and John B. Lowe.
  []
 
-[8]
 Missing character: There is no ’ in font ptmr7t!
- [9] (./amt.aux) ) 
+[9] (./amt.aux) ) 
 Here is how much of TeX's memory you used:
- 1399 strings out of 95137
- 17337 string characters out of 1183013
+ 1434 strings out of 95138
+ 17909 string characters out of 1183036
  2063317 words of memory out of 4518152
- 4521 multiletter control sequences out of 10000+50000
- 31593 words of font info for 76 fonts, out of 2000000 for 2000
+ 4561 multiletter control sequences out of 10000+50000
+ 22390 words of font info for 76 fonts, out of 2000000 for 2000
  58 hyphenation exceptions out of 5000
- 27i,9n,22p,1568b,243s stack positions out of 5000i,500n,6000p,200000b,40000s
-PDF statistics:
- 71 PDF objects out of 300000
- 0 named destinations out of 131072
- 1 words of extra memory for PDF output out of 10000
-</usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cm
-bx8.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmbx10.pfb><
-/usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmsy8.pfb></usr/local
-/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi6.pfb></usr/local/teTeX/sha
-re/texmf.tetex/fonts/type1/bluesky/cm/cmex10.pfb></usr/local/teTeX/share/texmf.
-tetex/fonts/type1/bluesky/cm/cmr8.pfb></usr/local/teTeX/share/texmf.tetex/fonts
-/type1/bluesky/cm/cmmi8.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/blu
-esky/cm/cmmi9.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cm
-r10.pfb></usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmsy10.pfb><
-/usr/local/teTeX/share/texmf.tetex/fonts/type1/bluesky/cm/cmmi10.pfb>{/usr/loca
-l/teTeX/share/texmf.tetex/fonts/enc/dvips/psnfss/8r.enc}</usr/local/teTeX/share
-/texmf.tetex/fonts/type1/urw/times/utmri8a.pfb></usr/local/teTeX/share/texmf.te
-tex/fonts/type1/urw/times/utmr8a.pfb></usr/local/teTeX/share/texmf.tetex/fonts/
-type1/urw/times/utmb8a.pfb>
-Output written on amt.pdf (9 pages, 129414 bytes).
+ 27i,9n,22p,1687b,284s stack positions out of 5000i,500n,6000p,200000b,40000s
+
+Output written on amt.dvi (9 pages, 58400 bytes).

@@ -307,7 +307,7 @@ These results state that for all tasks except ``Fear'' we are able to achieve ex
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=8cm]{figures/all_emo.eps}
+%\includegraphics[width=8cm]{figures/all_emo.eps}
 \caption{Non-expert correlation for affect recognition } \label{affITAfigure}
 \end{figure}
 
@@ -329,7 +329,7 @@ As in the previous task we evaluate our non-expert annotations by averaging the 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=8cm]{figures/all_rest.eps}
+%\includegraphics[width=8cm]{figures/all_rest.eps}
 \caption{Inter-annotator correlation for word similarity, and agreement for RTE, event annotation, and WSD tasks } \label{restITA}
 \end{figure}
 
@@ -446,6 +446,8 @@ We used this model to improve accuracy on the RTE-1 and event annotation tasks. 
 \end{figure}
 
 Figure \ref{WorkerModelResults} shows improved accuracy at different numbers of annotators.  The lowest line is for the naive 50\% majority voting rule.  (This is equivalent to the model under uniform priors and equal accuracies across workers and labels.)  Each point is the data set's accuracy against the gold labels, averaged across resamplings each of which obtains $k$ annotations per example.  RTE has an average +4.0\% accuracy increase, averaged across 2 through 10 annotators.  We find a +3.4\% gain on event annotation.
+
+Finally, we experimented with a similar calibration method for numeric data, using a Gaussian noise model for each worker: $y_w | x \sim N(x + \mu_w, \sigma_w)$.  On the affect task, this yielded a small but consistent increases in Pearson correlation at all numbers of annotators, averaging a +0.6\% gain.
 
 \section{ Training a system with non-expert annotations }
 
