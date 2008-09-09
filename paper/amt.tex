@@ -14,7 +14,6 @@
 \usepackage[dvips]{epsfig}
 
 
-% Some illegal space-saving macros
 \parskip=3pt
 \abovedisplayskip 3.0pt plus2pt minus2pt%
 \belowdisplayskip \abovedisplayskip
@@ -166,9 +165,16 @@ to entice users into freely labeling data.
 There have been an increasing number of experiments using Mechanical
 Turk for annotation.  In \cite{Su:07} workers provided annotations for the tasks of
 hotel name entity resolution and attribute extraction of age, product brand, and
-product model, and were found to have high accuracy compared to gold-standard labels.  In
-\cite{Nakov:08} workers generated paraphrases of 250 noun-noun compounds which were then used
-as the gold standard dataset for evaluating an automatic method of noun compound paraphrasing (though no external gold standard was compared).
+product model, and were found to have high accuracy compared to gold-standard labels.  
+\newcite{Kittur:08} compared AMT evaluations of Wikipedia article quality against experts, finding validation tests were important to ensure good results.
+\newcite{Zaenen:08} studied the agreement of annotators
+on the problem of recognizing textual entailment (a similar task
+and dataset is explained in more detail in Section 4).
+
+At least several studies have already used AMT without external gold standard comparisons.
+In \cite{NakovLREC:08} workers generated paraphrases of 250 noun-noun compounds which were then used
+as the gold standard dataset for evaluating an automatic method of noun compound paraphrasing.
+% bto; note sure whether to mention or replace with NakovACL:08
 \newcite{Kaisser:08a} use AMT to help build a dataset for question answering, 
 %. Following on
 %to corpora constructed for the TREC QA Evaluation \cite{Voorhees:06},
@@ -176,12 +182,12 @@ as the gold standard dataset for evaluating an automatic method of noun compound
 %level, \cite{Kaisser:08a} used AMT to annotate the answers to 8107
 annotating the answers to 8107
 questions with the \textit{sentence}
-containing the answer.  \newcite{Kaisser:08b} examines the task of
+containing the answer.  
+\newcite{Kaisser:08b} examines the task of
 customizing the summary length of QA output;
 non-experts from AMT chose a summary length that suited their information needs for varying
-query types.  \newcite{Zaenen:08} studied the agreement of annotators
-on the problem of recognizing textual entailment (a similar task
-and dataset is explained in more detail in Section 4).
+query types.  
+\newcite{Dakka:08} evaluate a document facet generation system against AMT-supplied facets, and also use AMT workers for user studies of the system.
 
 \section{ Task Design }
 
@@ -200,7 +206,7 @@ In general we follow a few simple design principles:  we attempt to keep our tas
 
 %[[other citations:   \cite{Chklovski:05} has specifically studied the annotation process for collecting labels on a meronym task volunteers over the web, and suggests a three-stage approach consisting of evaluation, retuning, and publication...]]
 
-%[[possible other citations:  \cite{Kittur:08} for experiments and design recommendations, \cite{Dakka:08}, \cite{Sheng:08}.
+%[[possible other citations:  \cite{Sheng:08}.
  \vspace*{-0.05in}
 \section{ Annotation Tasks }
 
@@ -688,11 +694,11 @@ Ido Dagan, Oren Glickman and Bernardo Magnini.
 \newblock The PASCAL Recognising Textual Entailment Challenge. 
 \newblock Machine Learning Challenges. Lecture Notes in Computer Science, Vol. 3944, pp. 177-190, Springer, 2006.
 
-%\bibitem[\protect\citename{Dakka and Ipeirotis}2008]{Dakka:08}
-%Wisam Dakka and Panagiotis G. Ipeirotis.
-%\newblock 2008.
-%\newblock Automatic Extraction of Useful Facet Terms from Text Documents.
-%\newblock In \textit{Proc. of ICDE-2008}.
+\bibitem[\protect\citename{Dakka and Ipeirotis}2008]{Dakka:08}
+Wisam Dakka and Panagiotis G. Ipeirotis.
+\newblock 2008.
+\newblock Automatic Extraction of Useful Facet Terms from Text Documents.
+\newblock In \textit{Proc. of ICDE-2008}.
 
 \bibitem[\protect\citename{Dawid and Skene}1979]{Dawid:79}
 A. P. Dawid and A. M. Skene.
@@ -736,11 +742,11 @@ Phil Katz, Matthew Singleton, Richard Wicentowski.
 \newblock SWAT-MP: The SemEval-2007 Systems for Task 5 and Task 14.
 \newblock In \textit{ Proc. of SemEval-2007}.
 
-%\bibitem[\protect\citename{Kittur et al.}2008]{Kittur:08}
-%Aniket Kittur, Ed H. Chi, and Bongwon Suh. 
-%\newblock 2008.
-%\newblock Crowdsourcing user studies with Mechanical Turk. 
-%\newblock In \textit{ Proc. of CHI-2008}.
+\bibitem[\protect\citename{Kittur et al.}2008]{Kittur:08}
+Aniket Kittur, Ed H. Chi, and Bongwon Suh. 
+\newblock 2008.
+\newblock Crowdsourcing user studies with Mechanical Turk. 
+\newblock In \textit{ Proc. of CHI-2008}.
 
 \bibitem[\protect\citename{Marcus et al.} 1993]{TreeBank}
 Mitchell P. Marcus , Mary Ann Marcinkiewicz , and Beatrice Santorini.
@@ -760,11 +766,18 @@ George A. Miller, Claudia Leacock, Randee Tengi, and Ross T. Bunke.
 \newblock A semantic concordance.
 \newblock In \textit{Proc. of HLT-1993}.
 
-\bibitem[\protect\citename{Nakov}2008]{Nakov:08}
+\bibitem[\protect\citename{Nakov}2008]{NakovLREC:08}
 Preslav Nakov.
 \newblock 2008.
 \newblock Paraphrasing Verbs for Noun Compound Interpretation.
 \newblock In \textit{Proc. of the Workshop on Multiword Expressions, LREC-2008}.
+
+%\bibitem[\protect\citename{Nakov and Hearst}2008]{NakovACL:08}
+%Preslav Nakov and Marti A. Hearst.
+%\newblock 2008.
+%\newblock Solving Relational Similarity Problems Using the Web as a Corpus.
+%\newblock In \textit{Proc. of ACL-2008}.
+
 
 \bibitem[\protect\citename{Palmer et al.}2005]{PropBank}
 Martha Palmer, Dan Gildea, and Paul Kingsbury.
@@ -795,6 +808,13 @@ Herbert Rubenstein and John B. Goodenough.
 \newblock 1965.
 \newblock Contextual Correlates of Synonymy.
 \newblock Communications of the ACM, 8(10):627--633.
+
+% not sure about this one
+%\bibitem[\protect\citename{Sheng et al.}2008]{Sheng:08}
+%Victor S. Sheng, Foster Provost, and Panagiotis G. Ipeirotis.
+%\newblock 2008.
+%\newblock Get Another Label? Improving Data Quality and Data Mining Using Multiple, Noisy Labelers.
+%\newblock KDD 08 [[ TODO if use this make correcter ]]
 
 \bibitem[\protect\citename{Singh}2002]{OpenMindCommonSense}
 Push Singh.
