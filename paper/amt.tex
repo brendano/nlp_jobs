@@ -514,7 +514,7 @@ Here we consider the slightly different problem of using a small amount of exper
 \vspace*{-0.1in}
 \subsection{ Bias correction in categorical data }
 
-Following Dawid and Skeene, we model labels and workers with a multinomial model similar to Naive Bayes.
+Following Dawid and Skene, we model labels and workers with a multinomial model similar to Naive Bayes.
 Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial.  Each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
 \[ P(y_{i1}, \ldots, y_{iW}, x_i) = \left( \prod_{w} P(y_{iw} | x_i) \right) p(x_i) \]
 
