@@ -206,7 +206,7 @@ In general we follow a few simple design principles:  we attempt to keep our tas
 
 %[[other citations:   \cite{Chklovski:05} has specifically studied the annotation process for collecting labels on a meronym task volunteers over the web, and suggests a three-stage approach consisting of evaluation, retuning, and publication...]]
 
-%[[possible other citations:  \cite{Sheng:08}.
+%[[possible other citations:  \cite{Sheng:08}.  BTO: can't find a place for it to fit, it's about a slightly different topic; given noisy labels, how useful are they and what's a good data collection/usage strategy?  i tried further down in the bias correction section,  but left it commented out, didnt fit there either
  \vspace*{-0.05in}
 \section{ Annotation Tasks }
 
@@ -503,9 +503,10 @@ The reliability of individual workers varies.  Some are very accurate, while oth
 \includegraphics[width=6cm]{figures/workers.eps}
 \caption{Worker accuracies on RTE task.  Each point is one worker.  Vertical jitter has been added to points on the left to show the large number of workers who did the minimum amount of work (20 examples).} \label{Workers}
 \end{figure}
-In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability of individual workers and correct for their biases.
+In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  
+%\footnote{\newcite{Sheng:08} experiment with various strategies to approach data collection of noisy labels.}
+Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability of individual workers and correct for their biases.
 
-%BTO more explanation
 A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze annotator agreement statistics to find bias, and use a similar model to correct labels.
 
 Here we consider the slightly different problem of using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We restrict our attention to categorical examples, though in principle a similar method could be used with numeric data.
