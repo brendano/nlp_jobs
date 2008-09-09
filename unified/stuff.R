@@ -1,4 +1,4 @@
-source("dlanalysis/main.R")
+source("dlanalysis/main.R")   # symlink please, github.com/brendano/dlanalysis
 
 load_stuff <- function() {
   tasks = c('rte','zaenen_rte','temp','wsd')
