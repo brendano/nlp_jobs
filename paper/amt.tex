@@ -346,7 +346,7 @@ We did this by averaging the labels of each possible subset of $n$ non-expert an
 \footnotesize
     \begin{center}
         \begin{tabular}{|c||c|c|c|c|}
-        \hline %BTO more explicit
+        \hline
         Emotion & 1-Expert & 10-NE & $k$ & $k$-NE \\
         \hline
         Anger & 0.459 &  0.675 & 2 & 0.536 \\
@@ -361,7 +361,6 @@ We did this by averaging the labels of each possible subset of $n$ non-expert an
         Avg. All & 0.603 & 0.694 & 4 & 0.613 \\  %BTO typo
         \hline
         \end{tabular}
-        %BTO more explicit
     \caption{Average expert and averaged correlation over 10 non-experts on test-set.  $k$ is the minimum number of non-experts needed to beat an average expert.}\label{affectITA2}
 \end{center}
 \vspace*{-0.1in}
@@ -445,9 +444,8 @@ We implement \textit{temporal ordering} as a simplified version of the TimeBank 
 
 \subsection{ Word Sense Disambiguation }
 
-In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we collect 10 annotations for each of 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{wsdITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard %BTO punctuation before footnote
+In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we collect 10 annotations for each of 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{wsdITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard
 annotation.\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}  
-%BTO wording
 After correcting this error, the non-expert accuracy rate is 100\% on the 177 examples in this task.  This is a specific example where non-expert annotations can be used to correct expert annotations.
 
 Since expert ITA was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17 \cite{Cai:07}, with an accuracy of 0.98.  %1770 annotations was collected as a price of US\$1.76, a rate of 1005.7 annotations per USD.
@@ -866,7 +864,7 @@ Janyce M. Wiebe, Rebecca F. Bruce and Thomas P. O'Hara.
 
 \bibitem[\protect\citename{Zaenen}2008]{Zaenen:08}
 Annie Zaenen. 
-\newblock Submitted.
+\newblock Submitted.  % bto: "2008" ?
 \newblock Do give a penny for their thoughts.
 \newblock International Journal of Natural Language Engineering (submitted).
 
