@@ -152,7 +152,9 @@
  \linewidth\hsize \vskip 0.125in minus 0.125in \centering
  {\Large\bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
  {\def\and{\unskip\enspace{\rm and}\enspace}%
-  \def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil 
+  %\def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil 
+  % modified by brendan for more horiz author spacing
+  \def\And{\end{tabular}\hss \egroup \hskip 1.55in plus 2fil 
            \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\bf}%
   \def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
           \vskip 0.25in plus 1fil minus 0.125in

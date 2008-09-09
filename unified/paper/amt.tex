@@ -28,9 +28,9 @@
 \newlength{\nameReduceTop}
 \newlength{\tableReduceTop}
 \newlength{\tableReduceBot}
-\setlength{\sectionReduceTop}{-0.08in}
-\setlength{\sectionReduceBot}{-0.08in}
-
+\setlength{\sectionReduceTop}{-0.2in}
+\setlength{\sectionReduceBot}{-0.2in}
+%\setlength\topmargin{0.8in}   % for box on top for blog post
 \setlength{\tableReduceTop}{-0.00in}
 \setlength{\tableReduceBot}{-0.10in}
 
@@ -42,26 +42,37 @@
 \setlength{\abstractReduceTop}{-0.6in}
 \setlength{\abstractReduceBot}{-0.15in}
 
-\setlength\titlebox{4.6cm}    % Expanding the titlebox
+\setlength\titlebox{7cm}    % Expanding the titlebox
 %\setlength\titlebox{6.0cm}    % Expanding the titlebox
 
-\title{ Cheap and Fast  ---  But is it Good?\\Evaluating Non-Expert Annotations for Natural Language Tasks }
+\title{\ \\ \ \\ % extra space for for_blog infobox
+Cheap and Fast  ---  But is it Good?\\Evaluating Non-Expert Annotations for Natural Language Tasks }
 
-%\author{Rion Snow \hspace{.3cm}  Rajat Raina\\
-%Computer Science Department\\
-%Stanford University \\
-%Stanford, CA 94305 USA \\
-%\small{\tt \{rion,rajatr\}@cs.stanford.edu}
-%\And Daniel Jurafsky\\
+\author{Rion Snow\\
+%Computer Science Department \\
+Computer Science Dept.\\
+Stanford University \\
+Stanford, CA 94305 \\
+\small{\tt rion@cs.stanford.edu}
+\And Brendan O'Connor\\
+Dolores Labs, Inc.\\
+832 Capp St.\\
+San Francisco, CA 94110 \\
+\small{\tt brendano@doloreslabs.com} \\
+%\footnotesize{\tt www.anyall.org} \\
+\And Daniel Jurafsky\\
 %Linguistics Department\\
-%Stanford University\\
-%Stanford, CA 94305 USA\\
-%\small{\tt jurafsky@stanford.edu}
-%\And Andrew Y. Ng\\
+Linguistics Dept.\\
+Stanford University\\
+Stanford, CA 94305 \\
+\small{\tt jurafsky@stanford.edu}
+\And Andrew Y. Ng\\
 %Computer Science Department\\
-%Stanford University \\
+Computer Science Dept.\\
+Stanford University \\
 %Stanford, CA 94305 USA \\
-%\small{\tt ang@cs.stanford.edu} }
+Stanford, CA 94305 \\
+\small{\tt ang@cs.stanford.edu} }
 %  Affiliation / Address line 1\\
 %  Affiliation / Address line 2\\
 %  Affiliation / Address line 3\\
@@ -72,9 +83,10 @@
 %  Affiliation / Address line 3\\
 %  {\tt email@domain}}
 
-\date{}
+ 
 \begin{document}
 \maketitle
+
 \vspace*{\abstractReduceTop}
 \begin{abstract}
 \small{Human linguistic annotation is crucial for many natural
@@ -135,7 +147,7 @@ that improves annotation quality.
 
 %[[ Labeling data is hard and expensive.  Volunteers from the internet are plentiful.  Many tasks are simple, but not necessarily fun -- paying a small amount of money is sufficient for attracting annotators to simple but not-very-fun tasks. ]]
 
-%[[ Optional: Rather than only being a method for collecting final annotations, AMT may also be used as a cost-effective means to perform user studies for annotation tasks across a wider population;  when developing guidelines Some things you can do with Mechanical Turk:  while considering the actual.  \cite{CorbettBlog:07} writes on the experience of developing a set of guidelines for annotating chemical named entities in scientific text \cite{Corbett:07}, writes that:  ``Having some framework where I could make variations in the annotation guidelines, re-annotate a corpus and see how it affects a task which can be evaluated against some ÔwildÕ data would be very helpful in evaluating the guidelines."  Services like Mechanical Turk make tasks such as this not only possible, but also cost-effective.]]
+%[[ Optional: Rather than only being a method for collecting final annotations, AMT may also be used as a cost-effective means to perform user studies for annotation tasks across a wider population;  when developing guidelines Some things you can do with Mechanical Turk:  while considering the actual.  \cite{CorbettBlog:07} writes on the experience of developing a set of guidelines for annotating chemical named entities in scientific text \cite{Corbett:07}, writes that:  ``Having some framework where I could make variations in the annotation guidelines, re-annotate a corpus and see how it affects a task which can be evaluated against some â€˜wildâ€™ data would be very helpful in evaluating the guidelines."  Services like Mechanical Turk make tasks such as this not only possible, but also cost-effective.]]
 
 %, TREC \cite{TREC} 
 
@@ -709,7 +721,7 @@ A. P. Dawid and A. M. Skene.
 \bibitem[\protect\citename{Kaisser and Lowe}2008]{Kaisser:08a}
 Michael Kaisser and John B. Lowe. 
 \newblock 2008.
-\newblock A Research Collection of QuestionÐAnswer Sentence Pairs.
+\newblock A Research Collection of Questionâ€“Answer Sentence Pairs.
 \newblock In \textit{Proc. of LREC-2008}.
 
 \bibitem[\protect\citename{Kaisser et al.}2008]{Kaisser:08b}
@@ -767,7 +779,7 @@ Sameer Pradhan, Edward Loper, Dmitriy Dligach and Martha Palmer.
 \newblock In \textit{ Proc. of the Fourth International Workshop on Semantic Evaluations (SemEval-2007), Association for Computational Linguistics, 2007}.
 
 \bibitem[\protect\citename{Pustejovsky et al.}2003]{TimeBank}
-James Pustejovsky, Patrick Hanks, Roser Saur’, Andrew See, Robert Gaizauskas, Andrea Setzer, Dragomir Radev, Beth Sundheim, David Day, Lisa Ferro and Marcia Lazo.
+James Pustejovsky, Patrick Hanks, Roser SaurÃ­, Andrew See, Robert Gaizauskas, Andrea Setzer, Dragomir Radev, Beth Sundheim, David Day, Lisa Ferro and Marcia Lazo.
 \newblock 2003.
 \newblock The TIMEBANK Corpus. 
 \newblock In \textit{Proc. of Corpus Linguistics 2003, 647-656.}
