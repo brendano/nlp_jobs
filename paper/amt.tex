@@ -44,34 +44,56 @@
 \setlength\titlebox{7cm}    % Expanding the titlebox
 %\setlength\titlebox{6.0cm}    % Expanding the titlebox
 
-\title{\ \\ \ \\ % extra space for for_blog infobox
-Cheap and Fast  ---  But is it Good?\\Evaluating Non-Expert Annotations for Natural Language Tasks }
+\title{Cheap and Fast  ---  But is it Good?\\Evaluating Non-Expert Annotations for Natural Language Tasks }
 
-\author{Rion Snow\\
-%Computer Science Department \\
-Computer Science Dept.\\
+%
+\author{Rion Snow$^\dagger$ \hspace{.3cm} Brendan O'Connor$^\ddagger$ \hspace{.3cm} Daniel Jurafsky$^\mathchar "278$ \hspace{.3cm} Andrew Y. Ng$^\dagger$ \\
+\AND  \vspace{-0.35in} \\ $^\dagger$Computer Science Dept.\\
 Stanford University \\
 Stanford, CA 94305 \\
-\small{\tt rion@cs.stanford.edu}
-\And Brendan O'Connor\\
-Dolores Labs, Inc.\\
-832 Capp St.\\
+\footnotesize{\tt \{rion,ang\}@cs.stanford.edu}\\
+%\scriptsize{\tt \{rion,ang\}@cs.stanford.edu}\\
+\And   \vspace{-0.35in}\\
+$^\ddagger$Dolores Labs, Inc.\\
+832 Capp St. \\
 San Francisco, CA 94110 \\
-\small{\tt brendano@doloreslabs.com} \\
-%\footnotesize{\tt www.anyall.org} \\
-\And Daniel Jurafsky\\
-%Linguistics Department\\
-Linguistics Dept.\\
+\footnotesize{\tt brendano@doloreslabs.com} \\
+\And   \vspace{-0.35in} \\
+$^\mathchar "278$Linguistics Dept. \\
 Stanford University\\
 Stanford, CA 94305 \\
-\small{\tt jurafsky@stanford.edu}
-\And Andrew Y. Ng\\
+\footnotesize{\tt jurafsky@stanford.edu} }
+
+%\author{Rion Snow\\
+%Computer Science Department \\
+%\small{Computer Science Dept.}\\
+%\affiliation{
+% \begin{tabular}{cl}
+% \dag & Stanford University \\
+% \end{tabular}
+%}
+
+%\small{Stanford University} \\
+%\small{Stanford, CA 94305} \\
+%\And Brendan O'Connor\\
+%\small{Dolores Labs, Inc.}\\
+%%\small{832 Capp St.}\\
+%\small{San Francisco, CA 94110} \\
+%\scriptsize{\tt brendano@doloreslabs.com} \\
+%\footnotesize{\tt www.anyall.org} \\
+%\And Daniel Jurafsky       Andrew Y. Ng\\
+%Linguistics Department\\
+%Linguistics Dept.\\
+%Stanford University\\
+%Stanford, CA 94305 \\
+%\scriptsize{\tt jurafsky@stanford.edu, ang@cs.stanford.edu} }
+%\And Andrew Y. Ng\\
 %Computer Science Department\\
-Computer Science Dept.\\
-Stanford University \\
+%Computer Science Dept.\\
+%Stanford University \\
 %Stanford, CA 94305 USA \\
-Stanford, CA 94305 \\
-\small{\tt ang@cs.stanford.edu} }
+%Stanford, CA 94305 \\
+%\scriptsize{\tt ang@cs.stanford.edu} }
 %  Affiliation / Address line 1\\
 %  Affiliation / Address line 2\\
 %  Affiliation / Address line 3\\
@@ -634,8 +656,8 @@ that we require an average of 4 non-expert labels per item in order
 to emulate expert-level label quality. Finally, we demonstrate significant improvement by controlling for labeler bias.
 
 
-%\subsection*{Acknowledgments}
-%Thanks to Marie-Catherine de Marneffe, Mona Diab, Christiane Fellbaum, Thad Hughes, and Benjamin Packer for useful discussions.  Rion Snow is supported by an NSF Fellowship.  This work was supported in part by the Disruptive Technology Office (DTO)'s Advanced Question Answering for Intelligence (AQUAINT) Phase III Program.
+\subsection*{Acknowledgments}
+Thanks to Nate Chambers, Annie Zaenen, Rada Mihalcea, Qi Su, Panos Ipeirotis, Bob Carpenter, David Vickrey, and Lukas Biewald for useful discussions.
 
 \bibliographystyle{acl}
 \begin{thebibliography}{}%\denselist
@@ -794,7 +816,6 @@ Preslav Nakov.
 %\newblock 2008.
 %\newblock Solving Relational Similarity Problems Using the Web as a Corpus.
 %\newblock In \textit{Proc. of ACL-2008}.
-
 
 \bibitem[\protect\citename{Palmer et al.}2005]{PropBank}
 Martha Palmer, Dan Gildea, and Paul Kingsbury.
