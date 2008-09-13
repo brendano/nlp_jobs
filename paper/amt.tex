@@ -507,11 +507,11 @@ The reliability of individual workers varies.  Some are very accurate, while oth
 \end{figure}
 In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  
 %\footnote{\newcite{Sheng:08} experiment with various strategies to approach data collection of noisy labels.}
-Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability of individual workers and correct for their biases.
+Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability and biases of individual workers and correct for them.
 
-A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze annotator agreement statistics to find bias, and use a similar model to correct labels.
+A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} are the first to consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze linguistic annotator agreement statistics to find bias, and use a similar model to correct labels.  A large literature in biostatistics addresses this same problem for medical diagnosis.  \newcite{Albert:04} review several related models, but argue they have various shortcomings and emphasize instead the importance of having a gold standard.\footnote{At the time of this writing, Bob Carpenter is experimenting with our data in Gibbs sampling versions of these models (e.g. Carpenter, 2008); see \texttt{\scriptsize{http://lingpipe-blog.com}} and \texttt{\scriptsize{http://blog.doloreslabs.com/topics/wisdom/}} for updates.}
 
-Here we consider the slightly different problem of using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We restrict our attention to categorical examples, though in principle a similar method could be used with numeric data.
+Here we take more of this approach, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
 \vspace*{-0.1in}
 \subsection{ Bias correction in categorical data }
 
@@ -653,6 +653,15 @@ to emulate expert-level label quality. Finally, we demonstrate significant impro
 % address = {Morristown, NJ, USA},
 % }
 
+\bibitem[\protect\citename{Albert and Dodd}2004]{Albert:04}
+Paul S. Albert and Lori E. Dodd.
+\newblock 2004.
+\newblock A Cautionary Note on the Robustness of Latent Class Models for Estimating Diagnostic Error without a Gold Standard. 
+%\newblock In \textit{Proc. of COLING-ACL 1998}.
+\newblock Biometrics, Vol. 60 (2004), pp. 427-435.
+%Applied Statistics, Vol. 28, No. 1 (1979), pp. 20-28.
+
+
 \bibitem[\protect\citename{Baker et al.}1998]{FrameNet}
 Collin F. Baker, Charles J. Fillmore and John B. Lowe.
 \newblock 1998.
@@ -670,6 +679,13 @@ Junfu Cai, Wee Sun Lee and Yee Whye Teh.
 \newblock 2007.
 \newblock Improving Word Sense Disambiguation Using Topic Features.
 \newblock In \textit{ Proc. of EMNLP-2007 }.
+
+\bibitem[\protect\citename{Carpenter}2008]{CarpenterPoster}
+Bob Carpenter.
+\newblock 2008.
+\newblock Hierarchical Bayesian Models of Categorical Data Analysis. 
+\newblock Poster in \textit{ New York Academy of Sciences 3rd Annual Machine Learning Symposium}.
+%\newblock Writeup online: \texttt{\scriptsize{http://lingpipe-blog.com/2008/09/05/hierarchical-bayesian-models-of-categorical-data-annotation/}}
 
 \bibitem[\protect\citename{Chklovski and Mihalcea}2002]{WordExpert}
 Timothy Chklovski and Rada Mihalcea.
