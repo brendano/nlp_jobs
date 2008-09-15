@@ -4,6 +4,15 @@
 
 \documentclass[11pt]{article}
 \usepackage{acl08}
+
+% hyperref clobbers acl08's citations style, so we fool it into not trying to much with cites.  (too bad it's one of the cooler features)
+\makeatletter
+\def\NAT@parse{\typeout{This is a fake Natbib command to fool Hyperref.}}
+\makeatother
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\newcommand{\hurl}[1]{\href{#1}{\scriptsize{\url{#1}}}}
+
 \usepackage{times}
 \usepackage{latexsym}
 \usepackage{amsmath}
@@ -139,7 +148,9 @@ The construction of these datasets, however, is extremely expensive in annotator
 and quality of data available to them \cite{Banko:01}, a promising alternative, at least for some tasks, is collecting annotations from non-expert volunteers.
 
 In this work we explore such a system, Amazon Mechanical Turk\footnote{Amazon Mechanical Turk may be found online at
-\texttt{\scriptsize{http://mturk.com.}}} (AMT), to study whether non-expert volunteers on
+%\texttt{\scriptsize{http://mturk.com.}}} 
+\hurl{http://mturk.com}}
+(AMT), to study whether non-expert volunteers on
 the web can provide reliable natural language annotations.
 %Our goals are to produce high quality labels for a number of NLP tasks,
 %to investigate which tasks are appropriate for this kind of annotation,
@@ -155,7 +166,8 @@ gold standard (expert) labels on the same data, and by using the AMT annotations
 In the next sections  of the paper
 we introduce the five tasks and the evaluation metrics, and offer
 methodological insights, including a new technique for bias correction
-that improves annotation quality.
+that improves annotation quality.\footnote{
+Please see \hurl{http://blog.doloreslabs.com/?p=109} for a condensed version of this paper, follow-ups, and ongoing public discussion.  We encourage comments to be directed here in addition to email when appropriate.  Dolores Labs Blog, ``AMT is fast, cheap, and good for machine learning data,'' Brendan O'Connor, Sept.~9,~2008.  More related work at \hurl{http://blog.doloreslabs.com/topics/wisdom/}.}
 
 %
 %Large scale annotation projects such as TreeBank \cite{TreeBank}, FrameNet \cite{FrameNet}, ProbBank \cite{PropBank}, SemCor \cite{SemCor} and many others have played an important role in influencing the direction of research in the statistical natural language processing community.  The construction of large manually-annotated gold-standard datasets has allowed researchers to explore and evaluate a variety of novel ideas and algorithms for solving different tasks.  However, the construction of these datasets is often extremely expensive, in terms of both annotator-hours and monetary expense.  The prospect of collecting annotations from non-expert volunteer contributors has been lauded as a promising alternative to this laborious process for certain tasks where the annotator requires only language fluency; however, the problem of drawing sufficient non-expert annotators to one's task is non-trivial.  
@@ -226,7 +238,7 @@ AMT is an online labor market where workers are paid small amounts of money to c
 \vspace*{-0.05in}
 \subsection{ Task Design }
 
-In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space; we have published our full experimental design and the data we have collected online\footnote{All tasks and collected data are available at \texttt{\scriptsize{http://ai.stanford.edu/\ensuremath{\sim}rion/annotations/.}}}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range. For every task we collect ten independent annotations for each unique item; this redundancy allows us to perform an in-depth study of how data quality improves with the number of independent annotations.
+In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space; we have published our full experimental design and the data we have collected online\footnote{All tasks and collected data are available at \hurl{http://ai.stanford.edu/\~rion/annotations/}.}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range. For every task we collect ten independent annotations for each unique item; this redundancy allows us to perform an in-depth study of how data quality improves with the number of independent annotations.
 
 %[[other citations:   \cite{Chklovski:05} has specifically studied the annotation process for collecting labels on a meronym task volunteers over the web, and suggests a three-stage approach consisting of evaluation, retuning, and publication...]]
 
@@ -328,7 +340,7 @@ we then average these ITA scores across all expert annotators to compute the ave
     \begin{center}
         \begin{tabular}{|c||c|c||c|c|}
         \hline
-        Emotion & E vs. E & E vs. All & NE vs. E & NE vs. All\\
+        Emotion & E vs. E & E vs. All & NE vs. E & NE vs. All \\
         \hline
         Anger & 0.459 & 0.503 & 0.444 & 0.573 \\
         Disgust & 0.583 & 0.594 & 0.537 & 0.647 \\
@@ -364,7 +376,7 @@ improves agreement, suggesting that non-expert annotations are good enough
 to increase the overall quality of the gold labels.
 Our first  comparison showed that individual experts were better than individual non-experts.
 In our next comparison we ask how many averaged non-experts it would take to rival the performance of a single expert.
-We did this by averaging the labels of each possible subset of $n$ non-expert annotations, for value of $n$ in $\{1, 2, \ldots, 10\}$.  We then treat this average as though it is the output of a single `meta-labeler', and compute the ITA with respect to each subset of five of the six expert annotators.  We then average the results of these studies across each subset size; the results of this experiment are given in Table \ref{affectITA2} and in figure \ref{affITAfigure}.  In addition to the single meta-labeler, we ask:  what is the minimum number of non-expert annotations $k$ from which we can create a meta-labeler that has equal or better ITA than an expert annotator?  In Table \ref{affectITA2} we give the minimum $k$ for each emotion, and the averaged ITA for that meta-labeler consisting of $k$ non-experts (marked ``$k$-NE'').  In Figure \ref{affITAfigure} we plot the expert ITA correlation as the horizontal dashed line.
+We did this by averaging the labels of each possible subset of $n$ non-expert annotations, for value of $n$ in $\{1, 2, \ldots, 10\}$.  We then treat this average as though it is the output of a single `meta-labeler', and compute the ITA with respect to each subset of five of the six expert annotators.  We then average the results of these studies across each subset size; the results of this experiment are given in Table \ref{affectITA2} and in Figure \ref{affITAfigure}.  In addition to the single meta-labeler, we ask:  what is the minimum number of non-expert annotations $k$ from which we can create a meta-labeler that has equal or better ITA than an expert annotator?  In Table \ref{affectITA2} we give the minimum $k$ for each emotion, and the averaged ITA for that meta-labeler consisting of $k$ non-experts (marked ``$k$-NE'').  In Figure \ref{affITAfigure} we plot the expert ITA correlation as the horizontal dashed line.
 
 \begin{table}[h]
 \footnotesize
@@ -391,7 +403,7 @@ We did this by averaging the labels of each possible subset of $n$ non-expert an
 \end{table}
 %\vspace*{\tableReduceBot}
 
-These results show that for all tasks except ``Fear'' we are able to achieve expert-level ITA with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  On average it requires only 4 non-expert annotations per example to achieve the equivalent ITA as a single expert annotator. Thus, given that we paid US\$2.00 in order to collect the 7000 non-expert annotations, we may interpret our rate of 3500 non-expert labels per USD on this task as at least 875 expert-equivalent labels per USD.
+These results show that for all tasks except ``Fear'' we are able to achieve expert-level ITA with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  Pooling judgments across all 7 tasks we find that on average it requires only 4 non-expert annotations per example to achieve the equivalent ITA as a single expert annotator. Thus, given that we paid US\$2.00 in order to collect the 7000 non-expert annotations, we may interpret our rate of 3500 non-expert labels per USD on this task as at least 875 expert-equivalent labels per USD.
 
 \begin{figure}[ht]
 \centering
@@ -409,7 +421,7 @@ These results show that for all tasks except ``Fear'' we are able to achieve exp
 
 \subsection{ Word Similarity }
 
-This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}. Numerous expert and non-expert studies have shown that this is task tends to yield very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
+This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}. Numerous expert and non-expert studies have shown that this task typically yields very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
 
 In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations per USD).  The most surprising aspect of this study was the speed with which it was completed; the task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission of our task to AMT, at the rate of 1724 annotations / hour.
 
@@ -525,7 +537,7 @@ The reliability of individual workers varies.  Some are very accurate, while oth
 \begin{figure}[t]
 \centering
 \includegraphics[width=6cm]{figures/workers.eps}
-\caption{Worker accuracies on RTE task.  Each point is one worker.  Vertical jitter has been added to points on the left to show the large number of workers who did the minimum amount of work (20 examples).} \label{Workers}
+\caption{Worker accuracies on the RTE task.  Each point is one worker.  Vertical jitter has been added to points on the left to show the large number of workers who did the minimum amount of work (20 examples).} \label{Workers}
 \end{figure}
 In general, there are at least three ways to enhance quality in the face of worker error.  More workers can be used, as described in previous sections.  
 %\footnote{\newcite{Sheng:08} experiment with various strategies to approach data collection of noisy labels.}
@@ -535,12 +547,12 @@ A wide number of methods have been explored to correct for the bias of annotator
 
 %\footnote{At the time of this writing, Bob Carpenter is experimenting with our data in Gibbs sampling versions of these models (e.g. Carpenter, 2008); see \texttt{\scriptsize{http://lingpipe-blog.com}} and \texttt{\scriptsize{http://blog.doloreslabs.com/topics/wisdom/}} for updates.}
 
-Here we take more of this approach, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
+Here we take an approach based on gold standard labels, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
 \vspace*{-0.1in}
 \subsection{ Bias correction in categorical data }
 
 Following Dawid and Skene, we model labels and workers with a multinomial model similar to Naive Bayes.
-Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial.  Each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
+Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial, and we model each worker's judgment as conditionally independent of other workers given the true label $x_i$, i.e.:
 \[ P(y_{i1}, \ldots, y_{iW}, x_i) = \left( \prod_{w} P(y_{iw} | x_i) \right) p(x_i) \]
 
 To infer the posterior probability of the true label for a new example, worker judgments are integrated via Bayes rule, yielding the posterior log-odds:
@@ -658,7 +670,9 @@ that we require an average of 4 non-expert labels per item in order
 to emulate expert-level label quality. Finally, we demonstrate significant improvement by controlling for labeler bias.
 
 \subsection*{Acknowledgments}
-Thanks to Nate Chambers, Annie Zaenen, Rada Mihalcea, Qi Su, Panos Ipeirotis, Bob Carpenter, David Vickrey, and Lukas Biewald for useful discussions.
+Thanks to Nate Chambers, Annie Zaenen, Rada Mihalcea, Qi Su, Panos Ipeirotis, Bob Carpenter, David Vickrey, and Lukas Biewald for useful discussions.  This work was supported in part by the Disruptive Technology Office
+(DTO)�s Advanced Question Answering for Intelligence
+(AQUAINT) Phase III Program.
 
 \bibliographystyle{acl}
 \begin{thebibliography}{}%\denselist
@@ -789,10 +803,10 @@ Aniket Kittur, Ed H. Chi, and Bongwon Suh.
 \newblock In \textit{ Proc. of CHI-2008}.
 
 \bibitem[\protect\citename{Marcus et al.} 1993]{TreeBank}
-Mitchell P. Marcus , Mary Ann Marcinkiewicz , and Beatrice Santorini.
+Mitchell P. Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini.
 \newblock 1993.
 \newblock Building a large annotated corpus of English: the Penn Treebank.
-\newblock Computational Linguistics, v.19 n.2, June 1993.
+\newblock Computational Linguistics 19:2, June 1993.
 
 \bibitem[\protect\citename{Miller and Charles} 1991]{MC}
 George A. Miller and William G. Charles.
@@ -822,13 +836,13 @@ Preslav Nakov.
 Martha Palmer, Dan Gildea, and Paul Kingsbury.
 \newblock 2005.
 \newblock The Proposition Bank: A Corpus Annotated with Semantic Roles.
-\newblock Computational Linguistics Journal, 31:1, 2005.
+\newblock Computational Linguistics, 31:1.
 
 \bibitem[\protect\citename{Pradhan et al.} 2007]{task17}
 Sameer Pradhan, Edward Loper, Dmitriy Dligach and Martha Palmer. 
 \newblock 2007.
 \newblock SemEval-2007 Task-17: English Lexical Sample, SRL and All Words. 
-\newblock In \textit{ Proc. of the Fourth International Workshop on Semantic Evaluations (SemEval-2007), Association for Computational Linguistics, 2007}.
+\newblock In \textit{ Proc. of SemEval-2007 }.
 
 \bibitem[\protect\citename{Pustejovsky et al.}2003]{TimeBank}
 James Pustejovsky, Patrick Hanks, Roser Saurí, Andrew See, Robert Gaizauskas, Andrea Setzer, Dragomir Radev, Beth Sundheim, David Day, Lisa Ferro and Marcia Lazo.
@@ -840,7 +854,7 @@ James Pustejovsky, Patrick Hanks, Roser Saurí, Andrew See, Robert Gaizauskas, A
 Philip Resnik. 
 \newblock 1999.
 \newblock Semantic Similarity in a Taxonomy: An Information-Based Measure and its Application to Problems of Ambiguity in Natural Language.
-\newblock In JAIR, Volume 11, pages 95-130.
+\newblock JAIR, Volume 11, pages 95-130.
 
 \bibitem[\protect\citename{Rubenstein and Goodenough}1965]{RG}
 Herbert Rubenstein and John B. Goodenough.
@@ -877,7 +891,7 @@ David G. Stork.
 Carlo Strapparava and Rada Mihalcea.
 \newblock 2007.
 \newblock SemEval-2007 Task 14: Affective Text
-\newblock In \textit{Proc. of SemEval 2007}.
+\newblock In \textit{Proc. of SemEval-2007}.
 
 \bibitem[\protect\citename{Su et al.}2007]{Su:07}
 Qi Su, Dmitry Pavlov, Jyh-Herng Chow, and Wendell C. Baker.
@@ -889,13 +903,13 @@ Qi Su, Dmitry Pavlov, Jyh-Herng Chow, and Wendell C. Baker.
 Luis von Ahn and Laura Dabbish.
 \newblock 2004.
 \newblock Labeling Images with a Computer Game.
-\newblock In ACM Conference on Human Factors in Computing Systems, CHI 2004. Pages 319-326. 
+\newblock In ACM Conference on Human Factors in Computing Systems, CHI 2004.
 
 \bibitem[\protect\citename{von Ahn et al.}2006]{verbosity}
 Luis von Ahn, Mihir Kedia and Manuel Blum. 
 \newblock 2006.
 \newblock Verbosity: A Game for Collecting Common-Sense Knowledge. 
-\newblock In ACM Conference on Human Factors in Computing Systems, CHI Notes 2006. Pages 75-78. 
+\newblock In ACM Conference on Human Factors in Computing Systems, CHI Notes 2006.
 
 \bibitem[\protect\citename{Voorhees and Dang}2006]{Voorhees:06}
 Ellen Voorhees and Hoa Trang Dang.
