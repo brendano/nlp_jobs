@@ -167,11 +167,7 @@ In the next sections  of the paper
 we introduce the five tasks and the evaluation metrics, and offer
 methodological insights, including a new technique for bias correction
 that improves annotation quality.\footnote{
-<<<<<<< HEAD:paper/amt.tex
 Please see \hurl{http://blog.doloreslabs.com/?p=109} for a condensed version of this paper, follow-ups, and ongoing public discussion.  We encourage comments to be directed here in addition to email when appropriate.  Dolores Labs Blog, ``AMT is fast, cheap, and good for machine learning data,'' Brendan O'Connor, Sept.~9,~2008.  More related work at \hurl{http://blog.doloreslabs.com/topics/wisdom/}.}
-=======
-Please see \hurl{http://blog.doloreslabs.com/?p=109} for a condensed version of this paper, follow-ups, and ongoing public discussion.  We encourage comments to be directed there rather than through email, when possible.  Dolores Labs Blog, ``AMT is fast, cheap, and good for machine learning data,'' Brendan O'Connor, Sept.~9,~2008.  More related work at \hurl{http://blog.doloreslabs.com/topics/wisdom/}.}
->>>>>>> c87600c1d09e2efab26c7891a1317df5582da6df:paper/amt.tex
 
 %
 %Large scale annotation projects such as TreeBank \cite{TreeBank}, FrameNet \cite{FrameNet}, ProbBank \cite{PropBank}, SemCor \cite{SemCor} and many others have played an important role in influencing the direction of research in the statistical natural language processing community.  The construction of large manually-annotated gold-standard datasets has allowed researchers to explore and evaluate a variety of novel ideas and algorithms for solving different tasks.  However, the construction of these datasets is often extremely expensive, in terms of both annotator-hours and monetary expense.  The prospect of collecting annotations from non-expert volunteer contributors has been lauded as a promising alternative to this laborious process for certain tasks where the annotator requires only language fluency; however, the problem of drawing sufficient non-expert annotators to one's task is non-trivial.  
@@ -242,11 +238,7 @@ AMT is an online labor market where workers are paid small amounts of money to c
 \vspace*{-0.05in}
 \subsection{ Task Design }
 
-<<<<<<< HEAD:paper/amt.tex
-In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space; we have published our full experimental design and the data we have collected online\footnote{All tasks and collected data are available at \hurl{http://ai.stanford.edu/\~rion/annotations/}}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range. For every task we collect ten independent annotations for each unique item; this redundancy allows us to perform an in-depth study of how data quality improves with the number of independent annotations.
-=======
 In general we follow a few simple design principles:  we attempt to keep our task descriptions as succinct as possible, and we attempt to give demonstrative examples for each class wherever possible.  We do not include our task instructions here for lack of space; we have published our full experimental design and the data we have collected online\footnote{All tasks and collected data are available at \hurl{http://ai.stanford.edu/\~rion/annotations/}.}.  We have restricted our study to tasks where we require only a multiple-choice response or numeric input within a fixed range. For every task we collect ten independent annotations for each unique item; this redundancy allows us to perform an in-depth study of how data quality improves with the number of independent annotations.
->>>>>>> c87600c1d09e2efab26c7891a1317df5582da6df:paper/amt.tex
 
 %[[other citations:   \cite{Chklovski:05} has specifically studied the annotation process for collecting labels on a meronym task volunteers over the web, and suggests a three-stage approach consisting of evaluation, retuning, and publication...]]
 
@@ -560,11 +552,7 @@ Here we take an approach based on gold standard labels, using a small amount of 
 \subsection{ Bias correction in categorical data }
 
 Following Dawid and Skene, we model labels and workers with a multinomial model similar to Naive Bayes.
-<<<<<<< HEAD:paper/amt.tex
 Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial, and we model each worker's judgment as conditionally independent of other workers given the true label $x_i$, i.e.:
-=======
-Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial, and we assume each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
->>>>>>> c87600c1d09e2efab26c7891a1317df5582da6df:paper/amt.tex
 \[ P(y_{i1}, \ldots, y_{iW}, x_i) = \left( \prod_{w} P(y_{iw} | x_i) \right) p(x_i) \]
 
 To infer the posterior probability of the true label for a new example, worker judgments are integrated via Bayes rule, yielding the posterior log-odds:
