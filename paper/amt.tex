@@ -533,12 +533,12 @@ Another method is to use Amazon's compensation mechanisms to give monetary bonus
 
 A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} are the first to consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze linguistic annotator agreement statistics to find bias, and use a similar model to correct labels.  A large literature in biostatistics addresses this same problem for medical diagnosis.  \newcite{Albert:04} review several related models, but argue they have various shortcomings and emphasize instead the importance of having a gold standard.\footnote{At the time of this writing, Bob Carpenter is experimenting with our data in Gibbs sampling versions of these models (e.g. Carpenter, 2008); see \texttt{\scriptsize{http://lingpipe-blog.com}} and \texttt{\scriptsize{http://blog.doloreslabs.com/topics/wisdom/}} for updates.}
 
-Here we take more of this approach, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
+Here we take an approach based on gold standard labels, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
 \vspace*{-0.1in}
 \subsection{ Bias correction in categorical data }
 
 Following Dawid and Skene, we model labels and workers with a multinomial model similar to Naive Bayes.
-Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial.  Each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
+Every example $i$ has a true label $x_i$.  For simplicity, assume two labels $\{Y,N\}$.   Several different workers give labels $y_{i1}, y_{i2}, \ldots y_{iW}$.  A worker's conditional probability of response is modeled as multinomial, and we assume each worker's judgment is conditionally independent of other workers given the true label $x_i$, i.e.:
 \[ P(y_{i1}, \ldots, y_{iW}, x_i) = \left( \prod_{w} P(y_{iw} | x_i) \right) p(x_i) \]
 
 To infer the posterior probability of the true label for a new example, worker judgments are integrated via Bayes rule, yielding the posterior log-odds:
