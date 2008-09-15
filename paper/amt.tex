@@ -209,7 +209,7 @@ containing the answer.
 customizing the summary length of QA output;
 non-experts from AMT chose a summary length that suited their information needs for varying
 query types.  
-\newcite{Dakka:08} evaluate a document facet generation system against AMT-supplied facets, and also use workers for user studies of the system.
+\newcite{Dakka:08} evaluate a document facet generation system against AMT-supplied facets, and also use workers for user studies of the system.  \newcite{Sorokin:08} collect data for machine vision tasks and report speed and costs similar to our findings; their summaries of worker behavior also corroborate with what we have found.
 
 In general, volunteer-supplied or AMT-supplied data is more plentiful but noisier than expert data.  It is powerful because independent annotations can be aggregated to achieve high reliability.  \newcite{Sheng:08} explore several methods for using many noisy labels to create labelled data, how to choose which examples should get more labels, and how to include labels' uncertainty information when training classifiers.  Since we focus on empirically validating AMT as a data source, we tend to stick to simple aggregation methods.
 
@@ -531,7 +531,9 @@ In general, there are at least three ways to enhance quality in the face of work
 %\footnote{\newcite{Sheng:08} experiment with various strategies to approach data collection of noisy labels.}
 Another method is to use Amazon's compensation mechanisms to give monetary bonuses to highly-performing workers and deny payments to unreliable ones; this is useful, but beyond the scope of this paper.  In this section we explore a third alternative, to model the reliability and biases of individual workers and correct for them.
 
-A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} are the first to consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze linguistic annotator agreement statistics to find bias, and use a similar model to correct labels.  A large literature in biostatistics addresses this same problem for medical diagnosis.  \newcite{Albert:04} review several related models, but argue they have various shortcomings and emphasize instead the importance of having a gold standard.\footnote{At the time of this writing, Bob Carpenter is experimenting with our data in Gibbs sampling versions of these models (e.g. Carpenter, 2008); see \texttt{\scriptsize{http://lingpipe-blog.com}} and \texttt{\scriptsize{http://blog.doloreslabs.com/topics/wisdom/}} for updates.}
+A wide number of methods have been explored to correct for the bias of annotators.  \newcite{Dawid:79} are the first to consider the case of having multiple annotators per example but unknown true labels.  They introduce an EM algorithm to simultaneously estimate annotator biases and latent label classes.  \newcite{Wiebe:99} analyze linguistic annotator agreement statistics to find bias, and use a similar model to correct labels.  A large literature in biostatistics addresses this same problem for medical diagnosis.  \newcite{Albert:04} review several related models, but argue they have various shortcomings and emphasize instead the importance of having a gold standard.
+
+%\footnote{At the time of this writing, Bob Carpenter is experimenting with our data in Gibbs sampling versions of these models (e.g. Carpenter, 2008); see \texttt{\scriptsize{http://lingpipe-blog.com}} and \texttt{\scriptsize{http://blog.doloreslabs.com/topics/wisdom/}} for updates.}
 
 Here we take more of this approach, using a small amount of expert-labeled training data in order to correct for the individual biases of different non-expert annotators.  The idea is to recalibrate worker's responses to more closely match expert behavior.  We focus on categorical examples, though a similar method can be used with numeric data.
 \vspace*{-0.1in}
@@ -701,11 +703,11 @@ Junfu Cai, Wee Sun Lee and Yee Whye Teh.
 \newblock Improving Word Sense Disambiguation Using Topic Features.
 \newblock In \textit{ Proc. of EMNLP-2007 }.
 
-\bibitem[\protect\citename{Carpenter}2008]{CarpenterPoster}
-Bob Carpenter.
-\newblock 2008.
-\newblock Hierarchical Bayesian Models of Categorical Data Analysis. 
-\newblock Poster in \textit{ New York Academy of Sciences 3rd Annual Machine Learning Symposium}.
+%\bibitem[\protect\citename{Carpenter}2008]{CarpenterPoster}
+%Bob Carpenter.
+%\newblock 2008.
+%\newblock Hierarchical Bayesian Models of Categorical Data Analysis. 
+%\newblock Poster in \textit{ New York Academy of Sciences 3rd Annual Machine Learning Symposium}.
 %\newblock Writeup online: \texttt{\scriptsize{http://lingpipe-blog.com/2008/09/05/hierarchical-bayesian-models-of-categorical-data-annotation/}}
 
 \bibitem[\protect\citename{Chklovski and Mihalcea}2002]{WordExpert}
@@ -857,6 +859,13 @@ Push Singh.
 \newblock 2002. 
 \newblock The public acquisition of commonsense knowledge.
 \newblock In \textit{Proc. of AAAI Spring Symposium on Acquiring (and Using) Linguistic (and World) Knowledge for Information Access, 2002.}
+
+\bibitem[\protect\citename{Sorokin and Forsyth}2008]{Sorokin:08}
+Alexander Sorokin and David Forsyth.
+\newblock 2008.
+\newblock Utility data annotation with Amazon Mechanical Turk.
+\newblock To appear in \textit{Proc. of First IEEE Workshop on Internet Vision at CVPR, 2008.}
+\newblock See also: \texttt{\scriptsize{http://vision.cs.uiuc.edu/annotation/}}
 
 \bibitem[\protect\citename{Stork}1999]{OpenMind}
 David G. Stork.
