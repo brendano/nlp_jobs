@@ -142,28 +142,26 @@ out in this method at a fraction of the usual expense.}
 
 Large scale annotation projects such as TreeBank \cite{TreeBank}, PropBank \cite{PropBank}, TimeBank \cite{TimeBank}, FrameNet \cite{FrameNet}, SemCor
 \cite{SemCor}, and others play an
-important role in natural language processing,
+important role in natural language processing research,
 encouraging the development of novel ideas, tasks, and algorithms.
-The construction of these datasets, however, is extremely expensive in annotator-hours as well as money.  Since the performance of many natural language processing tasks is limited by the amount
-and quality of data available to them \cite{Banko:01}, a promising alternative, at least for some tasks, is collecting annotations from non-expert volunteers.
+The construction of these datasets, however, is extremely expensive in both annotator-hours and financial cost.  Since the performance of many natural language processing tasks is limited by the amount
+and quality of data available to them \cite{Banko:01}, one promising alternative for some tasks is the collection of non-expert annotations.
 
-In this work we explore such a system, Amazon Mechanical Turk\footnote{Amazon Mechanical Turk may be found online at
+In this work we explore the use of Amazon Mechanical Turk\footnote{
 %\texttt{\scriptsize{http://mturk.com.}}} 
-\hurl{http://mturk.com}}
-(AMT), to study whether non-expert volunteers on
-the web can provide reliable natural language annotations.
+\hurl{http://mturk.com}} (AMT), to determine whether non-expert labelers can provide reliable natural language annotations.
 %Our goals are to produce high quality labels for a number of NLP tasks,
 %to investigate which tasks are appropriate for this kind of annotation,
 %and to develop the methodological framework for achieving high-accuracy labels.
-We chose five natural language understanding tasks that we felt would be sufficiently natural and learnable for non-experts, and for which we had gold standard labels from expert labelers, as well as (in some cases) human labeler agreement information.
+We chose five natural language understanding tasks that we felt would be sufficiently natural and learnable for non-experts, and for which we had gold standard labels from expert labelers, as well as (in some cases) expert labeler agreement information.
 The tasks are: affect recognition, word similarity, recognizing
 textual entailment, event temporal ordering, and word sense
-disambiguation.   
-For each task, we used AMT to annotate data and
+disambiguation.   For each task, we used AMT to annotate data and
 measured the quality of the annotations by comparing them with the
-gold standard (expert) labels on the same data, and by using the AMT annotations to train machine learning classifiers. 
+gold standard (expert) labels on the same data. Further, we compare machine learning classifiers
+trained on expert annotations vs. non-expert annotations.
 
-In the next sections  of the paper
+In the next sections of the paper
 we introduce the five tasks and the evaluation metrics, and offer
 methodological insights, including a new technique for bias correction
 that improves annotation quality.\footnote{
@@ -263,7 +261,7 @@ this sample headline-annotation pair:
 &\small(\textit{Sadness,20}),(\textit{Surprise,40}),(\textit{Valence,-50}).
 \end{array}
 \end{equation*}
-For our experiment we select a 100-headline sample from the original Semeval test set, and collect 10 affect annotations for each of the seven label types, for a total of 7000 affect labels.
+For our experiment we select a 100-headline sample from the original SemEval test set, and collect 10 affect annotations for each of the seven label types, for a total of 7000 affect labels.
 
 %This task is attractive both because it can be described to annotators with only a few lines of instruction, and because we have a set of 1000 headlines that were each annotated by six experts for all seven affect types, allowing a rich study of the relative quality of expert and non-expert annotation.
 
@@ -401,9 +399,8 @@ We did this by averaging the labels of each possible subset of $n$ non-expert an
 \end{center}
 \vspace*{-0.1in}
 \end{table}
-%\vspace*{\tableReduceBot}
-
-These results show that for all tasks except ``Fear'' we are able to achieve expert-level ITA with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  Pooling judgments across all 7 tasks we find that on average it requires only 4 non-expert annotations per example to achieve the equivalent ITA as a single expert annotator. Thus, given that we paid US\$2.00 in order to collect the 7000 non-expert annotations, we may interpret our rate of 3500 non-expert labels per USD on this task as at least 875 expert-equivalent labels per USD.
+\vspace*{\tableReduceBot}
+These results show that for all tasks except ``Fear'' we are able to achieve expert-level ITA with the held-out set of experts within 9 labelers, and frequently within only 2 labelers.  Pooling judgments across all 7 tasks we find that on average it requires only 4 non-expert annotations per example to achieve the equivalent ITA as a single expert annotator. Given that we paid US\$2.00 in order to collect the 7000 non-expert annotations, we may interpret our rate of 3500 non-expert labels per USD as at least 875 expert-equivalent labels per USD.
 
 \begin{figure}[ht]
 \centering
@@ -421,7 +418,7 @@ These results show that for all tasks except ``Fear'' we are able to achieve exp
 
 \subsection{ Word Similarity }
 
-This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}. Numerous expert and non-expert studies have shown that this task typically yields very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
+This task replicates the word similarity task used in \cite{MC}, following a previous task initially proposed by \cite{RG}.  Specifically, we ask for numeric judgments of word similarity for 30 word pairs on a scale of [0,10], allowing fractional responses\footnote{\cite{MC} and others originally used a numerical score of [0,4].}.  These word pairs range from highly similar (e.g., \{\textit{boy, lad}\}), to unrelated (e.g., \{\textit{noon, string}\}).  Numerous expert and non-expert studies have shown that this task typically yields very high interannotator agreement as measured by Pearson correlation; \cite{MC} found a 0.97 correlation of the annotations of 38 subjects with the annotations given by 51 subjects in \cite{RG}, and a following study \cite{Resnik:99} with 10 subjects found a 0.958 correlation with \cite{MC}.
 
 In our experiment we ask for 10 annotations each of the full 30 word pairs, at an offered price of \$0.02 for each set of 30 annotations (or, equivalently, at the rate of 1500 annotations per USD).  The most surprising aspect of this study was the speed with which it was completed; the task of 300 annotations was completed by 10 annotators in less than 11 minutes from the time of submission of our task to AMT, at the rate of 1724 annotations / hour.
 
@@ -443,7 +440,9 @@ As in the previous task we evaluate our non-expert annotations by averaging the 
 
 \subsection{ Recognizing Textual Entailment }
 
-This task replicates the recognizing textual entailment task originally proposed in the PASCAL Recognizing Textual Entailment task \cite{rte1}; here for each question the annotator is presented with two sentences and asked whether the second sentence can be inferred from the first.  We gather 10 annotations each for all 800 sentence pairs in the PASCAL RTE-1 dataset.  For this dataset expert interannotator agreement studies have been reported as achieving 91\% and 96\% agreement over various subsections of the corpus.  For greater than 1 annotation we employ a simple voting mechanism;  further, we break ties randomly and average our performance over all possible ways to break ties.  We collect 10 annotations for each of 100 RTE sentence pairs; as displayed in Figure \ref{rteITA}, we achieve a maximum accuracy of 89.7\%, averaging over the annotations of 10 workers. % We assign this task into HITs of 20 annotations apiece, each with a corresponding payment of US\$0.02, for a total cost of US\$8.00 (i.e., at a rate of 1000 annotations per USD).
+This task replicates the recognizing textual entailment task originally proposed in the PASCAL Recognizing Textual Entailment task \cite{rte1}; here for each question the annotator is presented with two sentences and given a binary choice of whether the second \textit{hypothesis} sentence can be inferred from the first.  For example, the hypothesis sentence ``\textit{Oil prices drop}'' would constitute a \textit{ true entailment } from the text ``\textit{Crude Oil Prices Slump}'', but a \textit{false entailment} from ``\textit{The government announced last week that it plans to raise oil prices}''. 
+
+We gather 10 annotations each for all 800 sentence pairs in the PASCAL RTE-1 dataset.  For this dataset expert interannotator agreement studies have been reported as achieving 91\% and 96\% agreement over various subsections of the corpus.  When considering multiple non-expert annotations for a sentence pair we use simple majority voting, breaking ties randomly and averaging performance over all possible ways to break ties.  We collect 10 annotations for each of 100 RTE sentence pairs; as displayed in Figure \ref{rteITA}, we achieve a maximum accuracy of 89.7\%, averaging over the annotations of 10 workers\footnote{It might seem pointless to consider an even number of annotations in this circumstance, since the majority voting mechanism and tie-breaking yields identical performance for $2n+1$ and $2n+2$ annotators; however, in Section 5 we will consider methods that can make use of the even annotations.}. % We assign this task into HITs of 20 annotations apiece, each with a corresponding payment of US\$0.02, for a total cost of US\$8.00 (i.e., at a rate of 1000 annotations per USD).
 \begin{figure}[ht]
 \centering
 \includegraphics[width=7cm]{figures/rte.eps}
@@ -464,27 +463,29 @@ This task replicates the recognizing textual entailment task originally proposed
 
 This task is inspired by the TimeBank corpus \cite{TimeBank}, which includes among its annotations
 a label for event-pairs that represents the temporal relation between them, from a set of fourteen relations ({\em before}, {\em after}, {\em during}, {\em includes}, etc.).
-
 %The TimeBank corpus consists of (X) sentences with Y labeled verb events;  these verb events have labeled with respect to neighboring verb events into one of six categories:  ()...
 % [[ Explain the different even annotations:  before, after, overlapping, etc]]
+We implement \textit{temporal ordering} as a simplified version of the TimeBank event temporal annotation task: rather than annotating all fourteen event types, we restrict our consideration to the two simplest labels:  ``strictly before'' and ``strictly after''.  Furthermore, rather than marking both nouns and verbs in the text as possible events, we only consider possible verb events.  We extract the 462 verb event pairs labeled as ``strictly before'' or ``strictly after'' in the TimeBank corpus, and we present these  pairs to annotators with a forced binary choice on whether the event described by the first verb occurs \textit{before} or \textit{after} the second.  For example, in a dialogue about a plane explosion, we have the utterance:  ``\textit{It just blew up in the air, and then we saw two fireballs go down to the, to the water, and there was a big small, ah, smoke, from ah, coming up from that}''.  Here for each annotation we highlight the specific verb pair of interest (e.g., \textit{go}/\textit{coming}, or \textit{blew}/\textit{saw}) and ask which event occurs first (here, \textit{go} and \textit{blew}, respectively).
 
-We implement \textit{temporal ordering} as a simplified version of the TimeBank event temporal annotation task: rather than annotating all fourteen event types, we restrict our consideration to the two simplest labels:  ``strictly before'' and ``strictly after''.  Furthermore, rather than marking both nouns and verbs in the text as possible events, we only consider possible verb events.  We extract the 462 verb event pairs labeled as ``strictly before'' or ``strictly after'' in the TimeBank corpus, and we present these  pairs to annotators with a forced binary choice on whether the first verb event in the pair occurs \textit{before} or \textit{after} one another.  The results of this task are presented in Figure \ref{tempITA}.  We achieve high agreement for this task, at a rate of 0.94 with simple voting over 10 annotators (4620 total annotations). While an expert ITA of 0.77 was reported for the more general task involving all fourteen labels on both noun and verb events, no expert ITA numbers have been reported for this simplified temporal ordering task.
+The results of this task are presented in Figure \ref{tempITA}.  We achieve high agreement for this task, at a rate of 0.94 with simple voting over 10 annotators (4620 total annotations). While an expert ITA of 0.77 was reported for the more general task involving all fourteen labels on both noun and verb events, no expert ITA numbers have been reported for this simplified temporal ordering task.
 %This was by far the most expensive of the five tasks, at total cost of \$13.82, a rate of only 333 annotations per USD .  
 \begin{figure}[ht]
 \centering
 \includegraphics[width=7cm]{figures/temp.eps}
 \caption{ITA for temporal ordering experiment } \label{tempITA}
 \end{figure}
+\vspace*{-0.2in}
 %Second, we give annotators the set of all labeled Timebank relations, and we ask for \textit{before}, \textit{after}, and \textit{other} labels.  Here we emphasize the notion of \textit{strictly before} and \textit{strictly after}.
 %[[ Task example ]]
-
 \subsection{ Word Sense Disambiguation }
-
-In this task we consider a very easy problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the Semeval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we collect 10 annotations for each of 177 examples of the noun ``president'' for the three senses given in Semeval.  As shown in Figure \ref{wsdITA}, performing simple voting over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact revealed to be an error in the original gold standard
-annotation.\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}  
+In this task we consider a simple problem on which machine learning algorithms have been shown to produce extremely good results; here we annotate part of the SemEval Word Sense Disambiguation Lexical Sample task \cite{task17}; specifically, we present the labeler with a paragraph of text containing the word ``president'' (e.g., a paragraph containing ``\textit{Robert E. Lyons III...was appointed president  and chief operating officer...}'') and ask the labeler which one of the following three sense labels is most appropriate:\\
+\small{1) \textit{executive officer of a firm, corporation, or university} \\
+2) \textit{head of a country (other than the U.S.) } \\
+3) \textit{head of the U.S., President of the United States} } \\
+\normalsize We collect 10 annotations for each of 177 examples of the noun ``president'' for the three senses given in SemEval.  As shown in Figure \ref{wsdITA}, performing simple majority voting (with random tie-breaking) over annotators results in a rapid accuracy plateau at a very high rate of 0.994 accuracy.  In fact, further analysis reveals that there was only a single disagreement between the averaged nonexpert-annotator vote and the gold standard; on inspection it was observed that the annotators voted strongly against the original gold label (9-to-1 against), and that it was in fact found to be an error in the original gold standard annotation.\footnote{The example sentence began ``\textit{The Egyptian president said he would visit Libya today...}'' and was mistakenly marked as the ``head of a company'' sense in the gold annotation (example id 24:0@24@wsj/23/wsj\_2381@wsj@en@on).}  
 After correcting this error, the non-expert accuracy rate is 100\% on the 177 examples in this task.  This is a specific example where non-expert annotations can be used to correct expert annotations.
 
-Since expert ITA was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in Semeval 17 \cite{Cai:07}, with an accuracy of 0.98.  %1770 annotations was collected as a price of US\$1.76, a rate of 1005.7 annotations per USD.
+Since expert ITA was not reported per word on this dataset, we compare instead to the performance of the best automatic system performance for disambiguating ``president'' in SemEval Task 17 \cite{Cai:07}, with an accuracy of 0.98.  %1770 annotations was collected as a price of US\$1.76, a rate of 1005.7 annotations per USD.
 
 \begin{figure}[ht]
 \centering
@@ -600,7 +601,7 @@ Where $|H|$ is simply the number of tokens in headline $H$, ignoring tokens not 
 \subsection{ Experiments }
 
 %First we verify that our model gives reasonable performance on the full task, trained and evaluated on the gold standard labels:
-We use 100 headlines as a training set (examples 500-599 from the test set of Semeval Task 14),  and we use the 900 headlines as our test set. Since we are fortunate to have the six separate expert annotations in this task, we can perform an extended systematic comparison of the performance of the classifier trained with expert vs. non-expert data.
+We use 100 headlines as a training set (examples 500-599 from the test set of SemEval Task 14),  and we use the 900 headlines as our test set. Since we are fortunate to have the six separate expert annotations in this task, we can perform an extended systematic comparison of the performance of the classifier trained with expert vs. non-expert data.
 
 \begin{table}[h]
 \footnotesize
@@ -660,19 +661,14 @@ and thus increasing system performance.
 \section{Conclusion}
 
 We demonstrate the effectiveness of using Amazon Mechanical Turk
-for a variety of natural language annotation tasks.  Our
-in-depth evaluation of labeler data vs. expert annotations for five
-tasks found that for many tasks only a small number of 
+for a variety of natural language annotation tasks.  Our evaluation of non-expert labeler data vs. expert annotations for five tasks found that for many tasks only a small number of non-expert
 annotations per item are necessary to equal the performance of an expert annotator.  
-In a detailed study of expert
-and non-expert agreement for an affect recognition task we find
+In a detailed study of expert and non-expert agreement for an affect recognition task we find
 that we require an average of 4 non-expert labels per item in order
 to emulate expert-level label quality. Finally, we demonstrate significant improvement by controlling for labeler bias.
 
 \subsection*{Acknowledgments}
-Thanks to Nate Chambers, Annie Zaenen, Rada Mihalcea, Qi Su, Panos Ipeirotis, Bob Carpenter, David Vickrey, and Lukas Biewald for useful discussions.  This work was supported in part by the Disruptive Technology Office
-(DTO)Õs Advanced Question Answering for Intelligence
-(AQUAINT) Phase III Program.
+Thanks to Nathanael Chambers, Annie Zaenen, Rada Mihalcea, Qi Su, Panos Ipeirotis, Bob Carpenter, David Vickrey, and Lukas Biewald for useful discussions.  This work was supported in part by the Disruptive Technology Office (DTO)Õs Advanced Question Answering for Intelligence (AQUAINT) Phase III Program.
 
 \bibliographystyle{acl}
 \begin{thebibliography}{}%\denselist
